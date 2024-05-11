@@ -1,17 +1,17 @@
 local status_ok, lualine = pcall(require, "lualine")
-local cyberdream = require "lualine.themes.cyberdream"
-local lazy_status = require "lazy.status"
+local cyberdream = require("lualine.themes.cyberdream")
+local lazy_status = require("lazy.status")
 if not status_ok then
   return
 end
-local icons = require "icons"
+local icons = require("icons")
 local hide_in_width = function()
   return vim.fn.winwidth(0) > 80
 end
 
 -- start for lsp
 local list_registered_providers_names = function(filetype)
-  local s = require "null-ls.sources"
+  local s = require("null-ls.sources")
   local available_sources = s.get_available(filetype)
   local registered = {}
   for _, source in ipairs(available_sources) do
@@ -23,7 +23,7 @@ local list_registered_providers_names = function(filetype)
   return registered
 end
 
-local null_ls = require "null-ls"
+local null_ls = require("null-ls")
 -- for formatter
 local list_registered = function(filetype)
   local method = null_ls.methods.FORMATTING
@@ -187,12 +187,12 @@ local bubbles_theme = {
   },
 }
 
-lualine.setup {
+lualine.setup({
   options = {
     -- icons_enabled = true,
     theme = "cyberdream",
     globalstatus = true,
-    component_separators = { left = "", right = "" },
+    component_separators = { left = "│", right = "│" },
     section_separators = { left = "", right = "" },
     refresh = {
       statusline = 1000,
@@ -231,6 +231,9 @@ lualine.setup {
     },
     lualine_x = {
 
+      {
+        "tabnine",
+      },
       { lazy_status.updates, cond = lazy_status.has_updates, color = { fg = colors.red } },
       { "encoding" },
       { "fileformat" },
@@ -246,7 +249,7 @@ lualine.setup {
       { "location", color = { fg = colors.cyan, bg = colors.none } },
       {
         function()
-          return "  " .. os.date "%X" .. " 🚀 "
+          return "  " .. os.date("%X") .. " 🚀 "
         end,
       },
     },
@@ -261,4 +264,4 @@ lualine.setup {
   },
   tabline = {},
   extensions = { "lazy", "toggleterm", "mason", "neo-tree", "trouble" },
-}
+})

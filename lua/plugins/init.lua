@@ -401,6 +401,15 @@ return {
         )
       end,
     },
+    {
+      "codota/tabnine-nvim",
+      lazy = "VeryLazy",
+      build = "./dl_binaries.sh",
+      enabled = false,
+      config = function()
+        require("configs.tabnine")
+      end,
+    },
     -- {
     --   "kiddos/gemini.nvim",
     --   lazy = false,
