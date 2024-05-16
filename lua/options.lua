@@ -1,4 +1,4 @@
-require "nvchad.options"
+require("nvchad.options")
 
 -- add yours here!
 -- vim.cmd "colorscheme cyberdream"
@@ -25,3 +25,4 @@ vim.opt.clipboard = "unnamedplus"
 --     require("lint").try_lint()
 --   end,
 -- })
+-- vim.opt.guicursor = "n:block-blinkwait1000-blinkon500-blinkoff500"

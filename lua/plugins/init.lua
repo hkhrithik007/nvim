@@ -4,7 +4,6 @@ return {
   {
     "stevearc/conform.nvim",
     lazy = true,
-
     enabled = false,
     event = { "BufWritePre", "BufnewFile" }, -- uncomment for format on save
     config = function()
@@ -77,6 +76,7 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    lazy = "VeryLazy",
     requries = { "nvim-treesitter/nvim-treesitter-textobjects", lazy = true },
     opts = {
       ensure_installed = {
@@ -126,7 +126,7 @@ return {
     { "williamboman/mason.nvim",           lazy = true },
     { "williamboman/mason-lspconfig.nvim", lazy = true },
   },
-  { "williamboman/nvim-lsp-installer", event = "VeryLazy", lazy = true },
+  -- { "williamboman/nvim-lsp-installer", event = "VeryLazy", lazy = true },
   -- {
   --   "WhoIsSethDaniel/mason-tool-installer",
   --   lazy = true,
@@ -144,11 +144,12 @@ return {
     {
       "folke/noice.nvim",
       enabled = true,
+      lazy = true,
       dependencies = {
         "MunifTanjim/nui.nvim",
         "rcarriga/nvim-notify",
       },
-      event = "BufWinEnter",
+      event = { "BufRead", "BufnewFile", "BufReadPre" },
       opts = {
         messages = {
           enabled = false,
@@ -229,6 +230,7 @@ return {
     {
       "stevearc/dressing.nvim",
       lazy = true,
+      event = { "VeryLazy", "BufRead", "BufnewFile" },
       init = function()
         ---@diagnostic disable-next-line: duplicate-set-field
         vim.ui.select = function(...)
@@ -269,18 +271,19 @@ return {
     end,
     dependencies = { { "nvim-tree/nvim-web-devicons" } },
   },
-  {
-    "MaximilianLloyd/ascii.nvim",
-    event = "VeryLazy",
-    enabled = false,
-    dependencies = { "MunifTanjim/nui.nvim" },
-    config = function()
-      require("ascii").setup()
-    end,
-  },
+  -- {
+  --   "MaximilianLloyd/ascii.nvim",
+  --   event = "VeryLazy",
+  --   enabled = false,
+  --   dependencies = { "MunifTanjim/nui.nvim" },
+  --   config = function()
+  --     require("ascii").setup()
+  --   end,
+  -- },
   {
     "folke/which-key.nvim",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
+    lazy = "VeryLazy",
     init = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
@@ -318,7 +321,7 @@ return {
   {
     "echasnovski/mini.indentscope",
     event = { "BufReadPre", "BufNewFile" },
-    -- lazy = false,
+    lazy = true,
     opts = {
       -- symbol = "▏",
       symbol = "│",
@@ -390,8 +393,8 @@ return {
     {
       "David-Kunz/gen.nvim",
       enabled = true,
-      event = "BufRead",
-      lazy = false,
+      event = { "BufRead", "BufNewFile" },
+      lazy = "VeryLazy",
       config = function()
         vim.keymap.set(
           "n",
@@ -501,8 +504,8 @@ return {
   --addons
   {
     "ggandor/leap.nvim",
-    lazy = false,
-    event = "BufRead",
+    lazy = true,
+    event = { "BufRead", "BufnewFile", "BufReadPre" },
     init = function()
       require("leap").add_default_mappings()
     end,
