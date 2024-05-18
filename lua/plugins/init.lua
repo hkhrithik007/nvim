@@ -487,8 +487,8 @@ return {
   --theme
   {
     "scottmckendry/cyberdream.nvim",
-    lazy = false,
-    priority = 1000,
+    lazy = true,
+    -- priority = 1000,
     config = function()
       require("configs.cyberdream")
     end,
@@ -504,12 +504,16 @@ return {
   },
   --addons
   {
-    "ggandor/leap.nvim",
-    lazy = "VeryLazy",
-    event = { "BufRead", "BufnewFile", "BufReadPre" },
-    init = function()
-      require("leap").add_default_mappings()
-    end,
-    dependencies = { "tpope/vim-repeat" },
+    {
+      "ggandor/leap.nvim",
+      enabled = true,
+      lazy = true,
+      event = { "BufRead", "BufNewFile" },
+      init = function()
+        require("leap").add_default_mappings()
+      end,
+      dependencies = { "tpope/vim-repeat" },
+    },
+    -- Add other plugins here...
   },
 }
