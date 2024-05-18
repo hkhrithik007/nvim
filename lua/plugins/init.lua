@@ -230,7 +230,7 @@ return {
     {
       "stevearc/dressing.nvim",
       lazy = true,
-      event = { "VeryLazy", "BufRead", "BufnewFile" },
+      event = { "BufRead", "BufnewFile" },
       init = function()
         ---@diagnostic disable-next-line: duplicate-set-field
         vim.ui.select = function(...)
@@ -248,6 +248,7 @@ return {
 
   {
     "max397574/better-escape.nvim",
+    lazy = true,
     event = "InsertEnter",
     config = function()
       require("better_escape").setup()
@@ -504,7 +505,7 @@ return {
   --addons
   {
     "ggandor/leap.nvim",
-    lazy = true,
+    lazy = "VeryLazy",
     event = { "BufRead", "BufnewFile", "BufReadPre" },
     init = function()
       require("leap").add_default_mappings()
