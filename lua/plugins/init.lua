@@ -227,6 +227,13 @@ return {
     },
   },
   {
+    "folke/tokyonight.nvim",
+    lazy = true,
+    config = function()
+      require("tokyonight").setup()
+    end,
+  },
+  {
     {
       "stevearc/dressing.nvim",
       lazy = true,

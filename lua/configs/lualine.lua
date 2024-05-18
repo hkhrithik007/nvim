@@ -1,6 +1,7 @@
 local status_ok, lualine = pcall(require, "lualine")
-local cyberdream = require("lualine.themes.cyberdream")
+-- local cyberdream = require("lualine.themes.cyberdream")
 local lazy_status = require("lazy.status")
+local tokyonight = require("tokyonight")
 if not status_ok then
   return
 end
@@ -189,10 +190,10 @@ local bubbles_theme = {
 
 lualine.setup({
   options = {
-    -- icons_enabled = true,
-    theme = "cyberdream",
+    icons_enabled = true,
+    theme = "tokyonight",
     globalstatus = true,
-    component_separators = { left = "│", right = "│" },
+    component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
     refresh = {
       statusline = 1000,
@@ -246,7 +247,7 @@ lualine.setup({
     },
     lualine_y = { { "progress" } },
     lualine_z = {
-      { "location", color = { fg = colors.cyan, bg = colors.none } },
+      { "location" },
       {
         function()
           return "  " .. os.date("%X") .. " 🚀 "
