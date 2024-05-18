@@ -4,7 +4,7 @@ if not status_ok then
 end
 function _LAZYGIT_TOGGLE()
   local Terminal = require("toggleterm.terminal").Terminal
-  local lazygit = Terminal:new { cmd = "lazygit", hidden = true }
+  local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
   lazygit:toggle()
 end
 
@@ -17,15 +17,15 @@ local setup = {
 
   popup_mappings = {
     scroll_down = "<c-d>", -- binding to scroll down inside the popup
-    scroll_up = "<c-u>",   -- binding to scroll up inside the popup
+    scroll_up = "<c-u>", -- binding to scroll up inside the popup
   },
 
   window = {
     -- border = "none", -- none/single/double/shadow
-    border = "rounded",       -- none, single, double, shadow
+    border = "rounded",     -- none, single, double, shadow
     -- border = "none", -- none, single, double, shadow
-    position = "bottom",      -- bottom, top
-    margin = { 1, 0, 1, 0 },  -- extra window margin [top, right, bottom, left]
+    position = "bottom",    -- bottom, top
+    margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
     padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
     winblend = 0,
   },
@@ -44,21 +44,21 @@ local setup = {
 }
 
 local opts = {
-  mode = "n",     -- NORMAL mode
+  mode = "n",    -- NORMAL mode
   prefix = "<leader>",
-  buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true,  -- use `silent` when creating keymaps
+  buffer = nil,  -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
   noremap = true, -- use `noremap` when creating keymaps
-  nowait = true,  -- use `nowait` when creating keymaps
+  nowait = true, -- use `nowait` when creating keymaps
 }
 
 local opts2 = {
-  mode = "v",     -- NORMAL mode
+  mode = "v",    -- NORMAL mode
   prefix = "<leader>",
-  buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true,  -- use `silent` when creating keymaps
+  buffer = nil,  -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
   noremap = true, -- use `noremap` when creating keymaps
-  nowait = true,  -- use `nowait` when creating keymaps
+  nowait = true, -- use `nowait` when creating keymaps
 }
 
 local trn = ""
@@ -69,7 +69,7 @@ local trn = ""
 local debug_key = {}
 -- local is_dap = pcall(require, "dap")
 
-if vim.fn.has "win32" == 0 then
+if vim.fn.has("win32") == 0 then
   debug_key = {
     name = "Debug",
     t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
