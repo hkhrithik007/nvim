@@ -241,7 +241,7 @@ lualine.setup({
       {
         "filetype",
         icon_only = true,
-        separator = "",
+        separator = "",
         padding = { left = 1, right = 0 },
       },
     },
@@ -250,7 +250,7 @@ lualine.setup({
       { "location" },
       {
         function()
-          return "  " .. os.date("%X") .. " 🚀 "
+          return " " .. os.date("%X") .. " 🚀 "
         end,
       },
     },

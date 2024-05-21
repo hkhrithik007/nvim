@@ -26,3 +26,4 @@ vim.opt.clipboard = "unnamedplus"
 --   end,
 -- })
 -- vim.opt.guicursor = "n:block-blinkwait1000-blinkon500-blinkoff500"
+vim.opt.termguicolors = true
