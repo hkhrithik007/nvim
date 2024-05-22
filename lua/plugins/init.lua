@@ -544,6 +544,13 @@ return {
         { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
       },
     },
+    {
+      "mrjones2014/smart-splits.nvim",
+      event = "BufRead",
+      config = function()
+        require("configs.smart-split")
+      end,
+    },
     -- Add other plugins here...
   },
 }
