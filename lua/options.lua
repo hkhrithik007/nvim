@@ -1,5 +1,4 @@
 require("nvchad.options")
-
 -- add yours here!
 -- vim.cmd "colorscheme cyberdream"
 -- local o = vim.o

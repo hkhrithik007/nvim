@@ -81,112 +81,112 @@ local lsp_info = {
     local msg = table.concat(unique_client_names, ", ")
     return msg
   end,
-  --icon = " ",
-  icon = icons.ui.Gear .. "",
+  icon = " ",
+  -- icon = icons.ui.Gear .. "",
   padding = 1,
 }
 
-local diagnostics = {
-  "diagnostics",
-  sources = { "nvim_diagnostic" },
-  sections = { "error", "warn" },
-  -- symbols = { error = " ", warn = " " },
-  symbols = {
-    error = icons.diagnostics.BoldError .. " ",
-    warn = icons.diagnostics.BoldWarning .. " ",
-  },
-  colored = true,
-  update_in_insert = false,
-  always_visible = false,
-}
-
-local diff = {
-  "diff",
-  colored = true,
-  symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
-  symbols = {
-    added = icons.git.LineAdded .. " ",
-    modified = icons.git.LineModified .. " ",
-    removed = icons.git.LineRemoved .. " ",
-  }, -- changes diff symbols
-  cond = hide_in_width,
-}
-
-local spaces = function()
-  -- return " " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
-  return icons.ui.Tab .. " " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
-end
-
-local mode = {
-  "mode",
-  padding = 1,
-  -- separator = { left = "│" },
-  -- right_padding = 3,
-  fmt = function(str)
-    return " " .. str
-  end,
-}
-local branch = {
-  "branch",
-  padding = 1,
-}
-
-local get_branch = function()
-  if vim.b.gitsigns_head ~= nil then
-    return " " .. vim.b.gitsigns_head
-  else
-    return " " .. vim.fn.fnamemodify("null", ":t")
-  end
-end
-
--- stylua: ignore
+-- local diagnostics = {
+--   "diagnostics",
+--   sources = { "nvim_diagnostic" },
+--   sections = { "error", "warn" },
+--   -- symbols = { error = " ", warn = " " },
+--   symbols = {
+--     error = icons.diagnostics.BoldError .. " ",
+--     warn = icons.diagnostics.BoldWarning .. " ",
+--   },
+--   colored = true,
+--   update_in_insert = false,
+--   always_visible = false,
+-- }
+--
+-- local diff = {
+--   "diff",
+--   colored = true,
+--   symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+--   symbols = {
+--     added = icons.git.LineAdded .. " ",
+--     modified = icons.git.LineModified .. " ",
+--     removed = icons.git.LineRemoved .. " ",
+--   }, -- changes diff symbols
+--   cond = hide_in_width,
+-- }
+--
+-- local spaces = function()
+--   -- return " " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+--   return icons.ui.Tab .. " " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+-- end
+--
+-- local mode = {
+--   "mode",
+--   padding = 1,
+--   -- separator = { left = "│" },
+--   -- right_padding = 3,
+--   fmt = function(str)
+--     return " " .. str
+--   end,
+-- }
+-- local branch = {
+--   "branch",
+--   padding = 1,
+-- }
+--
+-- local get_branch = function()
+--   if vim.b.gitsigns_head ~= nil then
+--     return " " .. vim.b.gitsigns_head
+--   else
+--     return " " .. vim.fn.fnamemodify("null", ":t")
+--   end
+-- end
+--
+-- -- stylua: ignore
 local colors = {
-  blue              = '#9ece6a',
-  cyan              = '#bb9af7',
-  black             = '#1a1b26',
-  black_transparant = '#1a1b2600',
-  white             = '#c6c6c6',
-  red               = "#ff757f",
-  skyblue           = '#7aa2f7',
-  grey              = '#3b4261',
-  yellow            = "#ffc777",
-  fg_gutter         = "#3b4261",
-  green1            = "#4fd6be",
+  blue = "#9ece6a",
+  cyan = "#bb9af7",
+  black = "#1a1b26",
+  black_transparant = "#1a1b2600",
+  white = "#c6c6c6",
+  red = "#ff757f",
+  skyblue = "#7aa2f7",
+  grey = "#3b4261",
+  yellow = "#ffc777",
+  fg_gutter = "#3b4261",
+  green1 = "#4fd6be",
 }
-
-local bubbles_theme = {
-  normal = {
-    a = { fg = colors.black, bg = colors.skyblue },
-    b = { fg = colors.white, bg = colors.grey },
-    c = { fg = colors.white, bg = colors.black_transparant },
-  },
-
-  insert = {
-    a = { fg = colors.black, bg = colors.blue },
-    b = { fg = colors.blue, bg = colors.grey },
-  },
-  visual = {
-    a = { fg = colors.black, bg = colors.cyan },
-    b = { fg = colors.cyan, bg = colors.grey },
-  },
-  replace = {
-    a = { bg = colors.red, fg = colors.black },
-    b = { bg = colors.fg_gutter, fg = colors.red },
-  },
-  command = {
-    a = { bg = colors.yellow, fg = colors.black },
-    b = { bg = colors.fg_gutter, fg = colors.yellow },
-  },
-  terminal = {
-    a = { bg = colors.green1, fg = colors.black },
-    b = { bg = colors.fg_gutter, fg = colors.green1 },
-  },
-  inactive = {
-    a = { fg = colors.white, bg = colors.black_transparant },
-    b = { fg = colors.white, bg = colors.black_transparant },
-    c = { fg = colors.black, bg = colors.black_transparant },
-  },
-}
+--
+-- local bubbles_theme = {
+--   normal = {
+--     a = { fg = colors.black, bg = colors.skyblue },
+--     b = { fg = colors.white, bg = colors.grey },
+--     c = { fg = colors.white, bg = colors.black_transparant },
+--   },
+--
+--   insert = {
+--     a = { fg = colors.black, bg = colors.blue },
+--     b = { fg = colors.blue, bg = colors.grey },
+--   },
+--   visual = {
+--     a = { fg = colors.black, bg = colors.cyan },
+--     b = { fg = colors.cyan, bg = colors.grey },
+--   },
+--   replace = {
+--     a = { bg = colors.red, fg = colors.black },
+--     b = { bg = colors.fg_gutter, fg = colors.red },
+--   },
+--   command = {
+--     a = { bg = colors.yellow, fg = colors.black },
+--     b = { bg = colors.fg_gutter, fg = colors.yellow },
+--   },
+--   terminal = {
+--     a = { bg = colors.green1, fg = colors.black },
+--     b = { bg = colors.fg_gutter, fg = colors.green1 },
+--   },
+--   inactive = {
+--     a = { fg = colors.white, bg = colors.black_transparant },
+--     b = { fg = colors.white, bg = colors.black_transparant },
+--     c = { fg = colors.black, bg = colors.black_transparant },
+--   },
+-- }
 
 lualine.setup({
   options = {
@@ -203,7 +203,7 @@ lualine.setup({
     disabled_filetypes = {
       --   "TelescopePrompt",
       --   "packer",
-      --   "Outline",
+      --   "Outline"
       --   "DressingInput",
       --   "toggleterm",
       --   "lazy",
@@ -214,6 +214,11 @@ lualine.setup({
   sections = {
     lualine_a = { { "mode", icon = "" } },
     lualine_b = {
+      lsp_info,
+      { "filename", symbols = { modified = "  ", readonly = "", unnamed = "" } },
+    },
+    lualine_c = {
+      { "branch", icon = "" },
       {
         "diagnostics",
         symbols = {
@@ -223,34 +228,28 @@ lualine.setup({
           hint = "󰝶 ",
         },
       },
-      lsp_info,
-    },
-    lualine_c = {
-      { "filename", symbols = { modified = "  ", readonly = "", unnamed = "" } },
-      { "branch", icon = "" },
-      { "diff" },
+      { "diff", separator = "" },
     },
     lualine_x = {
-
+      { "searchcounts" },
       {
         "tabnine",
       },
       { lazy_status.updates, cond = lazy_status.has_updates, color = { fg = colors.red } },
-      { "encoding" },
       { "fileformat" },
       {
         "filetype",
         icon_only = true,
-        separator = "",
+        separator = "",
         padding = { left = 1, right = 0 },
       },
     },
     lualine_y = { { "progress" } },
     lualine_z = {
-      { "location" },
+      { "location", color = { fg = colors.none, bg = colors.none } },
       {
         function()
-          return " " .. os.date("%X") .. " 🚀 "
+          return "  " .. os.date("%X") .. " 🚀 "
         end,
       },
     },
