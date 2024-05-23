@@ -151,6 +151,7 @@ return {
       },
       event = { "BufRead", "BufnewFile", "BufReadPre" },
       opts = {
+        presets = { "inc_rename" },
         messages = {
           enabled = false,
         },
@@ -550,6 +551,15 @@ return {
       config = function()
         require("configs.smart-split")
       end,
+    },
+    {
+      "smjonas/inc-rename.nvim",
+      event = "BufRead",
+      lazy = true,
+      config = function()
+        require("inc_rename").setup()
+      end,
+      -- vim.keymap.set("n", "<leader>rn", ":IncRename "),
     },
     -- Add other plugins here...
   },

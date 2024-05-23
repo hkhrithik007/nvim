@@ -232,6 +232,7 @@ lualine.setup({
     },
     lualine_x = {
       { "searchcounts" },
+      { "encoding", icon_only = true, separator = "", padding = { left = 0, right = 1 } },
       {
         "tabnine",
       },
