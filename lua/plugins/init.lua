@@ -10,7 +10,6 @@ return {
       require("configs.conform")
     end,
   },
-
   {
     "mfussenegger/nvim-jdtls",
   },
@@ -267,7 +266,7 @@ return {
     lazy = true,
     event = "InsertEnter",
     config = function()
-      require("better_escape").setup()
+      require("configs.better-escape")
     end,
   },
   {
@@ -385,8 +384,15 @@ return {
     {
       "Exafunction/codeium.vim",
       enabled = true,
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "hrsh7th/nvim-cmp",
+      },
       -- event = "BufEnter",
       event = { "InsertEnter" },
+      -- config = function()
+      -- require("codeium").setup()
+      -- end,
 
       config = function()
         -- Change '<C-g>' here to any keycode you like.
@@ -402,7 +408,7 @@ return {
         vim.keymap.set("i", "<C-x>", function()
           return vim.fn["codeium#Clear"]()
         end, { expr = true, silent = true })
-        vim.keymap.set({ "i", "n" }, "<c-h", function()
+        vim.keymap.set({ "i", "n" }, "<C-h", function()
           return vim.fn["codeium#Chat"]()
         end, { expr = true, silent = true })
       end,
@@ -537,7 +543,8 @@ return {
       event = "BufRead",
       opts = {},
       -- stylua: ignore
-      keys = {
+      keys =
+      {
         { "A",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
         { "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
         { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
@@ -548,6 +555,7 @@ return {
     {
       "mrjones2014/smart-splits.nvim",
       event = "BufRead",
+      lazy = "VeryLazy",
       config = function()
         require("configs.smart-split")
       end,
