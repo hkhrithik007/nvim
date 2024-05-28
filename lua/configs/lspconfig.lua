@@ -13,23 +13,16 @@ for _, lsp in ipairs(servers) do
     on_init = on_init,
     capabilities = capabilities,
   })
+
+  lspconfig.jdtls.setup({
+    on_attach = on_attach,
+    on_init = on_init,
+    capabilities = capabilities,
+  })
+
+  lspconfig.kotlin_language_server.setup({
+    on_attach = on_attach,
+    on_init = on_init,
+    capabilities = capabilities,
+  })
 end
-
--- typescript
--- lspconfig.tsserver.setup {
---   on_attach = on_attach,
---   on_init = on_init,
---   capabilities = capabilities,
--- }
-
-lspconfig.jdtls.setup({
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
-})
-
-lspconfig.kotlin_language_server.setup({
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
-})

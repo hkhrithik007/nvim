@@ -3,12 +3,11 @@ return {
   --This is for Coding based plugins
   {
     "stevearc/conform.nvim",
-    lazy = true,
     enabled = false,
-    event = { "BufWritePre", "BufnewFile" }, -- uncomment for format on save
-    config = function()
-      require("configs.conform")
-    end,
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    enabled = false,
   },
   {
     "mfussenegger/nvim-jdtls",
@@ -89,17 +88,6 @@ return {
       },
     },
   },
-
-  {
-    "mfussenegger/nvim-lint",
-    enabled = false,
-    event = { "BufReadPre", "BufNewFile" },
-    lazy = true,
-    config = function()
-      require("configs.lint")
-    end,
-  },
-
   --This section is for Debug
   {
     {
@@ -125,19 +113,6 @@ return {
     { "williamboman/mason.nvim",           lazy = true },
     { "williamboman/mason-lspconfig.nvim", lazy = true },
   },
-  -- { "williamboman/nvim-lsp-installer", event = "VeryLazy", lazy = true },
-  -- {
-  --   "WhoIsSethDaniel/mason-tool-installer",
-  --   lazy = true,
-  --   event = "VeryLazy",
-  --   config = function()
-  --     require("mason-tool-installer").setup {
-  --       ensure_installed = {
-  --         "checkstyle",
-  --       },
-  --     }
-  --   end,
-  -- },
   --This is for UI
   {
     {
@@ -270,14 +245,6 @@ return {
     end,
   },
   {
-    "goolord/alpha-nvim",
-    enabled = false,
-    lazy = false,
-    config = function()
-      require("configs.alpha")
-    end,
-  },
-  {
     "nvimdev/dashboard-nvim",
     enabled = true,
     event = "VimEnter",
@@ -287,15 +254,6 @@ return {
     end,
     dependencies = { { "nvim-tree/nvim-web-devicons" } },
   },
-  -- {
-  --   "MaximilianLloyd/ascii.nvim",
-  --   event = "VeryLazy",
-  --   enabled = false,
-  --   dependencies = { "MunifTanjim/nui.nvim" },
-  --   config = function()
-  --     require("ascii").setup()
-  --   end,
-  -- },
   {
     "folke/which-key.nvim",
     -- event = "VeryLazy",
@@ -329,9 +287,9 @@ return {
   {
     "nvim-tree/nvim-tree.lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    -- config = function()
-    --   require "configs.nvimtree"
-    -- end,
+    config = function()
+      require("configs.nvimtree")
+    end,
   },
   --This is the section of indention scope
   {
@@ -362,21 +320,6 @@ return {
           vim.b.miniindentscope_disable = true
         end,
       })
-    end,
-  },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    enabled = false,
-    config = function()
-      require("configs.indent")
-    end,
-  },
-  {
-    "gelguy/wilder.nvim",
-    enabled = false,
-    event = "cmdLineEnter",
-    config = function()
-      require("configs.wilder")
     end,
   },
   --This section is for Ai
@@ -427,148 +370,69 @@ return {
         )
       end,
     },
-    {
-      "codota/tabnine-nvim",
-      lazy = "VeryLazy",
-      build = "./dl_binaries.sh",
-      enabled = false,
-      config = function()
-        require("configs.tabnine")
-      end,
-    },
     -- {
-    --   "kiddos/gemini.nvim",
-    --   lazy = false,
-    --   event = "BufRead",
-    --   build = { "pip install -r requirements.txt", ":UpdateRemotePlugins" },
+    --   "codota/tabnine-nvim",
+    --   lazy = "VeryLazy",
+    --   build = "./dl_binaries.sh",
+    --   enabled = false,
     --   config = function()
-    --     require("gemini").setup()
+    --     require("configs.tabnine")
     --   end,
     -- },
+    --game
     {
-      "meinside/gemini.nvim",
-      enabled = false,
-      event = { "BufRead" },
-      config = function()
-        require("gemini").setup({
-          -- (default values)
-          configFilepath = "~/.config/config.json",
-          timeout = 30 * 1000,
-          model = "gemini-1.0-pro",
-          safetyThreshold = "BLOCK_ONLY_HIGH",
-          stripOutermostCodeblock = function()
-            return vim.bo.filetype ~= "markdown"
-          end,
-          verbose = false,
-        })
-      end,
-      dependencies = { { "nvim-lua/plenary.nvim" } },
-    },
-    {
-      "airpods69/yagp.nvim",
-      event = "BufRead",
-      enabled = false,
-      lazy = false,
-      dependencies = { "nvim-lua/plenary.nvim" },
-      config = function()
-        require("yagp").setup()
-      end,
-    },
-    {
-      "jackMort/ChatGPT.nvim",
-      enabled = false,
-      event = "VeryLazy",
-      config = function()
-        require("configs.chatgpt")
-      end,
-      dependencies = {
-        "MunifTanjim/nui.nvim",
-        "nvim-lua/plenary.nvim",
-        "folke/trouble.nvim",
-        "nvim-telescope/telescope.nvim",
-      },
-    },
-    {
-      "robitx/gp.nvim",
-      lazy = false,
-      enabled = false,
-      config = function()
-        require("configs.gp")
-      end,
-    },
-  },
-  --game
-  {
-    "seandewar/killersheep.nvim",
-    lazy = true,
-    event = "BufRead",
-    config = function()
-      require("configs.killersheep")
-    end,
-  },
-  --theme
-  {
-    "scottmckendry/cyberdream.nvim",
-    lazy = true,
-    enabled = false,
-    -- priority = 1000,
-    config = function()
-      require("configs.cyberdream")
-    end,
-  },
-  --mode
-  {
-    "folke/twilight.nvim",
-    lazy = true,
-    event = "BufRead",
-    config = function()
-      require("twilight").setup()
-    end,
-  },
-  --addons
-  {
-    {
-      "ggandor/leap.nvim",
-      enabled = false,
-      lazy = true,
-      event = { "BufRead", "BufNewFile" },
-      init = function()
-        require("leap").add_default_mappings()
-      end,
-      dependencies = { "tpope/vim-repeat" },
-    },
-    {
-      "folke/flash.nvim",
+      "seandewar/killersheep.nvim",
       lazy = true,
       event = "BufRead",
-      opts = {},
-      -- stylua: ignore
-      keys =
+      config = function()
+        require("configs.killersheep")
+      end,
+    },
+    --theme
+    -- {
+    --   "scottmckendry/cyberdream.nvim",
+    --   lazy = true,
+    --   enabled = false,
+    --   -- priority = 1000,
+    --   config = function()
+    --     require("configs.cyberdream")
+    --   end,
+    -- },
+    --mode
+    -- {
+    --   "folke/twilight.nvim",
+    --   lazy = true,
+    --   event = "BufRead",
+    --   config = function()
+    --     require("twilight").setup()
+    --   end,
+    -- },
+    --addons
+    {
       {
-        { "A",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
-        { "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
-        { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
-        { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-        { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+        "folke/flash.nvim",
+        lazy = true,
+        event = "BufRead",
+        opts = {},
+        -- stylua: ignore
+        keys =
+        {
+          { "A",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+          { "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+          { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+          { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+          { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+        },
       },
+      {
+        "mrjones2014/smart-splits.nvim",
+        event = "BufRead",
+        lazy = "VeryLazy",
+        config = function()
+          require("configs.smart-split")
+        end,
+      },
+      -- Add other plugins here...
     },
-    {
-      "mrjones2014/smart-splits.nvim",
-      event = "BufRead",
-      lazy = "VeryLazy",
-      config = function()
-        require("configs.smart-split")
-      end,
-    },
-    {
-      "smjonas/inc-rename.nvim",
-      event = "BufRead",
-      lazy = true,
-      config = function()
-        require("inc_rename").setup()
-      end,
-      -- vim.keymap.set("n", "<leader>rn", ":IncRename "),
-    },
-    -- Add other plugins here...
   },
 }

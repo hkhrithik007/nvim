@@ -19,4 +19,7 @@ map("n", "<C-_>", "<esc><cmd>lua require('Comment.api').toggle.linewise.current(
 map("n", "<C-/>", "<esc><cmd>lua require('Comment.api').toggle.linewise.current()<cr>i")
 -- Expand `cc` into CodeCompanion in the command line
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
-vim.keymap.set("n", "<leader>R", ":IncRename ")
+vim.keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })                         -- toggle file explorer
+vim.keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
+vim.keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" })                     -- collapse file explorer
+vim.keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })                       -- refresh file explorer

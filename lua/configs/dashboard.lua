@@ -1,3 +1,4 @@
+
 local banners = require "banners"
 
 local function rand_banner()
