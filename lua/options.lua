@@ -1,6 +1,6 @@
 require("nvchad.options")
 -- add yours here!
--- vim.cmd "colorscheme cyberdream"
+-- vim.cmd("colorscheme tokyonight-moon")
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
 vim.opt.cursorline = true

@@ -212,7 +212,7 @@ lualine.setup({
     always_divide_middle = true,
   },
   sections = {
-    lualine_a = { { "mode", icon = "" } },
+    lualine_a = { { "mode", icon = "" } },
     lualine_b = {
       lsp_info,
       { "filename", symbols = { modified = "  ", readonly = "", unnamed = "" } },

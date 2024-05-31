@@ -2,13 +2,19 @@ local lazy = require("lazy")
 return {
   --This is for Coding based plugins
   {
-    "stevearc/conform.nvim",
-    enabled = false,
+    {
+      "stevearc/conform.nvim",
+      enabled = false,
+    },
+    {
+
+      {
+        "numToStr/Comment.nvim",
+        enabled = false,
+      },
+    },
   },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    enabled = false,
-  },
+
   {
     "mfussenegger/nvim-jdtls",
   },
@@ -392,7 +398,7 @@ return {
     -- {
     --   "scottmckendry/cyberdream.nvim",
     --   lazy = true,
-    --   enabled = false,
+    --   enabled = true,
     --   -- priority = 1000,
     --   config = function()
     --     require("configs.cyberdream")
