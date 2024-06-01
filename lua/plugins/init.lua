@@ -4,7 +4,10 @@ return {
   {
     {
       "stevearc/conform.nvim",
-      enabled = false,
+      enabled = true,
+      config = function()
+        require("configs.conform")
+      end,
     },
     {
 
@@ -19,6 +22,13 @@ return {
     "mfussenegger/nvim-jdtls",
   },
   {
+"mfussenegger/nvim-lint",
+    lazy = "VeryLazy",
+    config = function()
+    require"configs.lint"
+    end,
+  },
+  {
     "akinsho/toggleterm.nvim",
     cmd = "ToggleTerm",
     event = "BufRead",
@@ -29,7 +39,7 @@ return {
   {
     "jayp0521/mason-null-ls.nvim",
     lazy = "VeryLazy",
-    enabled = true,
+    enabled = false,
     dependencies = {
       "nvimtools/none-ls.nvim",
       dependencies = {
@@ -212,6 +222,13 @@ return {
     lazy = true,
     config = function()
       require("tokyonight").setup()
+    end,
+  },
+  {
+    "dgox16/oldworld.nvim",
+    lazy = "VeryLazy",
+    config = function()
+      require("oldworld").setup()
     end,
   },
   {
