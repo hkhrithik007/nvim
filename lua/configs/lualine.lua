@@ -1,5 +1,5 @@
 local colors = require("oldworld.palette")
-
+local lazy_status = require("lazy.status")
 local modecolor = {
   n = colors.red,
   i = colors.cyan,
@@ -88,6 +88,7 @@ local modes = {
     return { bg = mode_color[vim.fn.mode()], fg = colors.bg_dark, gui = "bold" }
   end,
   separator = { left = "", right = "" },
+
 }
 
 local function getLspName()
@@ -205,6 +206,8 @@ require("lualine").setup({
       location,
     },
     lualine_x = {
+
+      { lazy_status.updates, cond = lazy_status.has_updates, color = { fg = colors.red } },
       space,
     },
     lualine_y = { macro, space },

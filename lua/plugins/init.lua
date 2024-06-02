@@ -22,10 +22,11 @@ return {
     "mfussenegger/nvim-jdtls",
   },
   {
-"mfussenegger/nvim-lint",
+    "mfussenegger/nvim-lint",
     lazy = "VeryLazy",
+    enabled = true,
     config = function()
-    require"configs.lint"
+      require("configs.lint")
     end,
   },
   {
@@ -36,26 +37,26 @@ return {
       require("configs.toggleterm")
     end,
   },
-  {
-    "jayp0521/mason-null-ls.nvim",
-    lazy = "VeryLazy",
-    enabled = false,
-    dependencies = {
-      "nvimtools/none-ls.nvim",
-      dependencies = {
-        "nvimtools/none-ls-extras.nvim",
-        lazy = true,
-        event = { "BufRead" },
-      },
-      config = function()
-        require("configs.null_ls")
-      end,
-    },
-    event = { "InsertEnter", "BufRead", "BufnewFile" },
-    opts = function()
-      require("configs.mason_null_ls")
-    end,
-  },
+  -- {
+  --   "jayp0521/mason-null-ls.nvim",
+  --   lazy = "VeryLazy",
+  --   enabled = false,
+  --   dependencies = {
+  --     "nvimtools/none-ls.nvim",
+  --     dependencies = {
+  --       "nvimtools/none-ls-extras.nvim",
+  --       lazy = true,
+  --       event = { "BufRead" },
+  --     },
+  --     config = function()
+  --       require("configs.null_ls")
+  --     end,
+  --   },
+  --   event = { "InsertEnter", "BufRead", "BufnewFile" },
+  --   opts = function()
+  --     require("configs.mason_null_ls")
+  --   end,
+  -- },
   {
     {
       "CRAG666/code_runner.nvim",
@@ -402,6 +403,7 @@ return {
     --     require("configs.tabnine")
     --   end,
     -- },
+    
     --game
     {
       "seandewar/killersheep.nvim",
