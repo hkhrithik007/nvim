@@ -142,7 +142,6 @@ return {
 			},
 			event = { "BufRead", "BufnewFile", "BufReadPre" },
 			opts = {
-				presets = { "inc_rename" },
 				messages = {
 					enabled = false,
 				},
@@ -268,14 +267,14 @@ return {
 		},
 	},
 
-	{
-		"max397574/better-escape.nvim",
-		lazy = true,
-		event = "InsertEnter",
-		config = function()
-			require("configs.better-escape")
-		end,
-	},
+	-- {
+	-- 	"max397574/better-escape.nvim",
+	-- 	lazy = true,
+	-- 	event = "InsertEnter",
+	-- 	config = function()
+	-- 		require("configs.better-escape")
+	-- 	end,
+	-- },
 	{
 		"nvimdev/dashboard-nvim",
 		enabled = true,
@@ -458,7 +457,7 @@ return {
         },
 			},
 			{
-				"mrjones2014/smart-splits.nvim",
+				"mrjones2017/smart-splits.nvim",
 				event = "BufRead",
 				lazy = "VeryLazy",
 				config = function()
