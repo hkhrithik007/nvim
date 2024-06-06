@@ -1,6 +1,6 @@
 local lazy = require("lazy")
 return {
-	--This is for Coding based plugins
+	--disabed plugins
 	{
 		{
 			"stevearc/conform.nvim",
@@ -18,6 +18,7 @@ return {
 		},
 	},
 
+	--This is for Coding based plugins
 	{
 		"mfussenegger/nvim-jdtls",
 	},
@@ -457,7 +458,7 @@ return {
         },
 			},
 			{
-				"mrjones2017/smart-splits.nvim",
+				"mrjones2014/smart-splits.nvim",
 				event = "BufRead",
 				lazy = "VeryLazy",
 				config = function()
