@@ -17,7 +17,6 @@ return {
 			},
 		},
 	},
-
 	--This is for Coding based plugins
 	{
 		"mfussenegger/nvim-jdtls",
@@ -59,15 +58,13 @@ return {
 	--   end,
 	-- },
 	{
-		{
-			"CRAG666/code_runner.nvim",
-			event = { "BufRead", "BufReadPre" },
-			dependencies = "nvim-lua/plenary.nvim",
-			cmd = { "RunCode", "RunFile", "RunProject", "RunClose" },
-			config = function()
-				require("configs.coderunner")
-			end,
-		},
+		"CRAG666/code_runner.nvim",
+		event = { "BufRead", "BufReadPre" },
+		dependencies = "nvim-lua/plenary.nvim",
+		cmd = { "RunCode", "RunFile", "RunProject", "RunClose" },
+		config = function()
+			require("configs.coderunner")
+		end,
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -218,21 +215,21 @@ return {
 			},
 		},
 	},
-	{
-		"folke/tokyonight.nvim",
-		lazy = true,
-		config = function()
-			require("tokyonight").setup()
-		end,
-	},
-	{
-		"echasnovski/mini.animate",
-		lazy = "VeryLazy",
-		event = "BufRead",
-		config = function()
-			require("mini.animate").setup()
-		end,
-	},
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	lazy = true,
+	-- 	config = function()
+	-- 		require("tokyonight").setup()
+	-- 	end,
+	-- },
+	-- {
+	-- 	"echasnovski/mini.animate",
+	-- 	lazy = "VeryLazy",
+	-- 	event = "BufRead",
+	-- 	config = function()
+	-- 		require("mini.animate").setup()
+	-- 	end,
+	-- },
 	{
 		"dgox16/oldworld.nvim",
 		lazy = "VeryLazy",
