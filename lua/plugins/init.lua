@@ -2,19 +2,10 @@ local lazy = require("lazy")
 return {
 	--disabed plugins
 	{
-		{
-			"stevearc/conform.nvim",
-			enabled = true,
-			config = function()
-				require("configs.conform")
-			end,
-		},
-		{
 
-			{
-				"numToStr/Comment.nvim",
-				enabled = false,
-			},
+		{
+			"numToStr/Comment.nvim",
+			enabled = false,
 		},
 	},
 	--This is for Coding based plugins
@@ -27,6 +18,14 @@ return {
 		enabled = true,
 		config = function()
 			require("configs.lint")
+		end,
+	},
+	--this if for formating
+	{
+		"stevearc/conform.nvim",
+		enabled = true,
+		config = function()
+			require("configs.conform")
 		end,
 	},
 	{
@@ -96,8 +95,6 @@ return {
 				"vim",
 				"lua",
 				"vimdoc",
-				"html",
-				"css",
 				"java",
 				"kotlin",
 			},
@@ -296,7 +293,15 @@ return {
 			require("configs.whichkey")
 		end,
 	},
-
+	{
+		"nvim-telescope/telescope-live-grep-args.nvim",
+		enabled = true,
+		lazy = "VeryLazy",
+		dependencies = { "nvim-telescope/telescope.nvim" },
+		config = function()
+			require("telescope").load_extension("live_grep_args")
+		end,
+	},
 	{
 		"nvim-lualine/lualine.nvim",
 		enabled = true,
@@ -356,26 +361,18 @@ return {
 		{
 			"Exafunction/codeium.vim",
 			enabled = true,
-			dependencies = {
-				"nvim-lua/plenary.nvim",
-				"hrsh7th/nvim-cmp",
-			},
-			-- event = "BufEnter",
+			commit = "289eb724e5d6fab2263e94a1ad6e54afebefafb2",
 			event = { "InsertEnter" },
-			-- config = function()
-			-- require("codeium").setup()
-			-- end,
-
 			config = function()
 				-- Change '<C-g>' here to any keycode you like.
 				vim.keymap.set("i", "<C-g>", function()
 					return vim.fn["codeium#Accept"]()
 				end, { expr = true, silent = true })
 				vim.keymap.set("i", "<C-;>", function()
-					return vim.fn["codeium#CycleCompletions"](1)
+					return vim.fn["codeium#CycleCompletions"]
 				end, { expr = true, silent = true })
 				vim.keymap.set("i", "<C-,>", function()
-					return vim.fn["codeium#CycleCompletions"](-1)
+					return vim.fn["codeium#CycleCompletions"]
 				end, { expr = true, silent = true })
 				vim.keymap.set("i", "<C-x>", function()
 					return vim.fn["codeium#Clear"]()
