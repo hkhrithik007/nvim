@@ -1,7 +1,7 @@
 local M = {}
 
 M.ui = {
-	theme = "chadracula-evondev",
+	theme = "tokyonight",
 	cmp = {
 		icons = true,
 		style = "flat_dark",

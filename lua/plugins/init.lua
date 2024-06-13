@@ -30,8 +30,9 @@ return {
 	},
 	{
 		"akinsho/toggleterm.nvim",
+		lazy = "VeryLazy",
 		cmd = "ToggleTerm",
-		event = "BufRead",
+		-- event = "BufRead",
 		config = function()
 			require("configs.toggleterm")
 		end,
@@ -114,7 +115,7 @@ return {
 		{
 			"jay-babu/mason-nvim-dap.nvim",
 			lazy = "VeryLazy",
-			event = "BufRead",
+			-- event = "BufRead",
 			dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
 			config = function()
 				require("configs.mason_dap")
@@ -123,7 +124,7 @@ return {
 	},
 	{
 		{ "williamboman/mason.nvim", lazy = true },
-		{ "williamboman/mason-lspconfig.nvim", lazy = true },
+		{ "williamboman/mason-lspconfig.nvim", lazy = "VeryLazy" },
 	},
 	--This is for UI
 	{
@@ -245,8 +246,8 @@ return {
 	{
 		{
 			"stevearc/dressing.nvim",
-			lazy = true,
-			event = { "BufRead", "BufnewFile" },
+			lazy = "VeryLazy",
+			-- event = { "BufRead", "BufnewFile" },
 			init = function()
 				---@diagnostic disable-next-line: duplicate-set-field
 				vim.ui.select = function(...)
@@ -386,7 +387,7 @@ return {
 			"David-Kunz/gen.nvim",
 			enabled = true,
 			event = { "BufRead", "BufNewFile" },
-			lazy = "VeryLazy",
+			-- lazy = "VeryLazy",
 			config = function()
 				vim.keymap.set(
 					"n",
@@ -409,8 +410,8 @@ return {
 		--game
 		{
 			"seandewar/killersheep.nvim",
-			lazy = true,
-			event = "BufRead",
+			lazy = "VeryLazy",
+			-- event = "BufRead",
 			config = function()
 				require("configs.killersheep")
 			end,

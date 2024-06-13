@@ -103,7 +103,6 @@ local mappings = {
 	["k"] = { "<cmd>KillKillKill<cr>", "SheepGame" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
-	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 	["ff"] = {
 		"<cmd>Telescope find_files <CR>",
@@ -114,12 +113,12 @@ local mappings = {
 	-- ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 	-- ["z"] = { "<cmd>Lazy<cr>", "Lazy" },
 
-	["/"] = {
-		function()
-			require("Comment.api").toggle.linewise.current()
-		end,
-		"Coment line",
-	},
+	-- ["/"] = {
+	-- 	function()
+	-- 		require("Comment.api").toggle.linewise.current()
+	-- 	end,
+	-- 	"Coment line",
+	-- },
 	-- ["m"] = {
 	-- 	name = "Markdown",
 	-- 	p = { "<cmd>MarkdownPreview<cr>", "Preview" },
