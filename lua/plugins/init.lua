@@ -79,6 +79,7 @@ return {
 			ensure_installed = {
 				"lua-language-server",
 				"stylua",
+				"luacheck",
 				"kotlin-language-server",
 				"jdtls",
 				"java-debug-adapter",
