@@ -4,7 +4,7 @@ M.ui = {
 	theme = "tokyonight",
 	cmp = {
 		icons = true,
-		style = "flat_dark",
+		style = "atom-dark",
 		lspkind_text = true,
 		source = true,
 		border = "single",
@@ -30,12 +30,12 @@ M.ui = {
 	-- 		"neogitstatus",
 	-- 	},
 	-- },
-	-- tabufline = {
-	-- 	enabled = true,
-	-- 	lazyload = true,
-	-- 	order = { "treeOffset", "buffers", "tabs", "btns" },
-	-- 	modules = nil,
-	-- },
+	tabufline = {
+		enabled = true,
+		lazyload = true,
+		order = { "treeOffset", "buffers", "tabs", "btns" },
+		modules = nil,
+	},
 }
 
 return M
