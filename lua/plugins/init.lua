@@ -414,8 +414,8 @@ return {
 		--game
 		{
 			"seandewar/killersheep.nvim",
-			lazy = "VeryLazy",
-			-- event = "BufRead",
+			-- lazy = "VeryLazy",
+			event = "BufRead",
 			config = function()
 				require("configs.killersheep")
 			end,
