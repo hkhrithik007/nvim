@@ -11,6 +11,7 @@ return {
 	--This is for Coding based plugins
 	{
 		"mfussenegger/nvim-jdtls",
+		ft = { "java" },
 	},
 	{
 		"mfussenegger/nvim-lint",
@@ -37,26 +38,6 @@ return {
 			require("configs.toggleterm")
 		end,
 	},
-	-- {
-	--   "jayp0521/mason-null-ls.nvim",
-	--   lazy = "VeryLazy",
-	--   enabled = false,
-	--   dependencies = {
-	--     "nvimtools/none-ls.nvim",
-	--     dependencies = {
-	--       "nvimtools/none-ls-extras.nvim",
-	--       lazy = true,
-	--       event = { "BufRead" },
-	--     },
-	--     config = function()
-	--       require("configs.null_ls")
-	--     end,
-	--   },
-	--   event = { "InsertEnter", "BufRead", "BufnewFile" },
-	--   opts = function()
-	--     require("configs.mason_null_ls")
-	--   end,
-	-- },
 	{
 		"CRAG666/code_runner.nvim",
 		event = { "BufRead", "BufReadPre" },
@@ -86,9 +67,6 @@ return {
 				"ktfmt",
 				"google-java-format",
 				"trivy",
-				-- "html-lsp",
-				-- "css-lsp",
-				-- "prettier",
 			},
 		},
 	},
@@ -140,7 +118,7 @@ return {
 				"MunifTanjim/nui.nvim",
 				"rcarriga/nvim-notify",
 			},
-			event = { "BufRead", "BufnewFile", "BufReadPre" },
+			-- event = { "BufRead", "BufnewFile", "BufReadPre" },
 			opts = {
 				messages = {
 					enabled = false,
@@ -217,21 +195,6 @@ return {
 			},
 		},
 	},
-	-- {
-	-- 	"folke/tokyonight.nvim",
-	-- 	lazy = true,
-	-- 	config = function()
-	-- 		require("tokyonight").setup()
-	-- 	end,
-	-- },
-	-- {
-	-- 	"echasnovski/mini.animate",
-	-- 	lazy = "VeryLazy",
-	-- 	event = "BufRead",
-	-- 	config = function()
-	-- 		require("mini.animate").setup()
-	-- 	end,
-	-- },
 	{
 		"dgox16/oldworld.nvim",
 		lazy = "VeryLazy",
@@ -267,14 +230,6 @@ return {
 		},
 	},
 
-	-- {
-	-- 	"max397574/better-escape.nvim",
-	-- 	lazy = true,
-	-- 	event = "InsertEnter",
-	-- 	config = function()
-	-- 		require("configs.better-escape")
-	-- 	end,
-	-- },
 	{
 		"nvimdev/dashboard-nvim",
 		enabled = true,
@@ -401,15 +356,6 @@ return {
 				)
 			end,
 		},
-		-- {
-		--   "codota/tabnine-nvim",
-		--   lazy = "VeryLazy",
-		--   build = "./dl_binaries.sh",
-		--   enabled = false,
-		--   config = function()
-		--     require("configs.tabnine")
-		--   end,
-		-- },
 
 		--game
 		{
@@ -420,16 +366,6 @@ return {
 				require("configs.killersheep")
 			end,
 		},
-		--theme
-		-- {
-		--   "scottmckendry/cyberdream.nvim",
-		--   lazy = true,
-		--   enabled = true,
-		--   -- priority = 1000,
-		--   config = function()
-		--     require("configs.cyberdream")
-		--   end,
-		-- },
 		--mode
 		-- {
 		--   "folke/twilight.nvim",
