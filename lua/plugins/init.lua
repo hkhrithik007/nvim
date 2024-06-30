@@ -1,3 +1,4 @@
+---@diagnostic disable-next-line: unused-local
 local lazy = require("lazy")
 return {
 	--disabed plugins

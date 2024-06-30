@@ -1,10 +1,11 @@
 local M = {}
 
 M.ui = {
-	theme = "bearded-arc",
+	theme = "jabuti",
+	transparency = true,
 	cmp = {
 		icons = true,
-		style = "atom-dark",
+		style = "default",
 		lspkind_text = true,
 		source = true,
 		border = "single",
