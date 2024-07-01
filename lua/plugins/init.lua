@@ -57,6 +57,9 @@ return {
 	},
 	{
 		"williamboman/mason.nvim",
+		dependencies = {
+			"williamboman/mason-lspconfig.nvim",
+		},
 		opts = {
 			ensure_installed = {
 				"lua-language-server",
@@ -105,9 +108,6 @@ return {
 				require("configs.mason_dap")
 			end,
 		},
-	},
-	{
-		{ "williamboman/mason-lspconfig.nvim", lazy = "VeryLazy" },
 	},
 	--This is for UI
 	{
