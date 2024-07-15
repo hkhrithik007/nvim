@@ -7,6 +7,9 @@ return {
 		{
 			"numToStr/Comment.nvim",
 			enabled = false,
+			config = function()
+				require("configs.comment")
+			end,
 		},
 	},
 	--This is for Coding based plugins
@@ -41,6 +44,7 @@ return {
 	},
 	{
 		"CRAG666/code_runner.nvim",
+		enabled = true,
 		event = { "BufRead", "BufReadPre" },
 		dependencies = "nvim-lua/plenary.nvim",
 		cmd = { "RunCode", "RunFile", "RunProject", "RunClose" },
@@ -245,6 +249,7 @@ return {
 		"folke/which-key.nvim",
 		-- event = "VeryLazy",
 		lazy = "VeryLazy",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 		init = function()
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300

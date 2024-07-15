@@ -1,8 +1,8 @@
 local M = {}
 
 M.ui = {
-	theme = "jabuti",
-	transparency = true,
+	theme = "catppuccin",
+	transparency = false,
 	cmp = {
 		icons = true,
 		style = "default",
