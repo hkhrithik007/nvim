@@ -1,7 +1,7 @@
 local M = {}
 
 M.ui = {
-	theme = "catppuccin",
+	theme = "chadracula-evondev",
 	transparency = false,
 	cmp = {
 		icons = true,
