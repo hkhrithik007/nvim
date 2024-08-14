@@ -2,7 +2,7 @@ local M = {}
 
 M.ui = {
 	theme = "chadracula-evondev",
-	transparency = false,
+	transparency = true,
 	cmp = {
 		icons = true,
 		style = "default",
@@ -10,7 +10,7 @@ M.ui = {
 		source = true,
 		border = "single",
 	},
-	telescope = { style = "bordered" },
+	-- telescope = { style = "bordered" },
 	lsp = { signature = true },
 	-- hl_override = {
 	-- 	Comment = { italic = true },

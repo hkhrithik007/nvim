@@ -25,7 +25,7 @@ return {
 			require("configs.lint")
 		end,
 	},
-	--this if for formating
+	--this is for formating
 	{
 		"stevearc/conform.nvim",
 		enabled = true,
