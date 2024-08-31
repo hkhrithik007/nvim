@@ -2,7 +2,7 @@ local M = {}
 
 M.ui = {
 	theme = "chadracula-evondev",
-	transparency = true,
+	-- transparency = true,
 	cmp = {
 		icons = true,
 		style = "default",
