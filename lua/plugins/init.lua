@@ -92,6 +92,14 @@ return {
 			},
 		},
 	},
+	{
+		"zeioth/garbage-day.nvim",
+		dependencies = "neovim/nvim-lspconfig",
+		event = "VeryLazy",
+		opts = {
+			aggressive_mode = true,
+		},
+	},
 	--This section is for Debug
 	{
 		{
@@ -407,6 +415,19 @@ return {
 				end,
 			},
 			-- Add other plugins here...
+		},
+		{
+			"karb94/neoscroll.nvim",
+			event = { "BufRead", "BufNewFile" },
+			config = function()
+				require("configs.neoscroll")
+			end,
+		},
+		{
+			"p5quared/apple-music.nvim",
+			lazy = "VeryLazy",
+			dependencies = { "nvim-telescope/telescope.nvim" },
+			config = true,
 		},
 	},
 }

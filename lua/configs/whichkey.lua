@@ -9,7 +9,7 @@ function _LAZYGIT_TOGGLE()
 end
 wk.add({
 	{
-		{ "<leader>f", group = "file", icon = "󰭎" }, -- group
+		{ "<leader>f", group = "file", icon = "" },
 		{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File", mode = "n", icon = "󰈞" },
 		{
 			"<leader>fg",
@@ -21,11 +21,44 @@ wk.add({
 			icon = "󰺮",
 		},
 		{
+			"<leader>fu",
+			function()
+				require("telescope").extensions.undo.undo()
+			end,
+			desc = "find undo history",
+			mode = "n",
+			icon = "",
+		},
+		{
 			"<leader>fb",
 			"<cmd>Telescope buffers<cr>",
 			desc = "Buffers",
 			mode = "n",
 			icon = "",
+		},
+		{
+			"<leader>fp",
+			function()
+				require("apple-music").select_playlist_telescope()
+			end,
+			desc = "[F]ind [P]laylists",
+			icon = "󰀶",
+		},
+		{
+			"<leader>fa",
+			function()
+				require("apple-music").select_album_telescope()
+			end,
+			desc = "[F]ind [A]lbum",
+			icon = "󰀶",
+		},
+		{
+			"<leader>fs",
+			function()
+				require("apple-music").select_track_telescope()
+			end,
+			desc = "[F]ind [S]ong",
+			icon = "󰀶",
 		},
 	},
 	{
@@ -197,12 +230,12 @@ wk.add({
 		{ "<leader>t", group = "terminal" },
 		{ "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal", mode = "n" },
 		{ "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "Toggle Float Terminal", mode = "n" },
-		-- {
-		--   "<leader>th",
-		--   "<cmd>ToggleTerm size=10 direction=horizontal<cr>",
-		--   desc = "Toggle Horizontal Terminal",
-		--   mode = "n",
-		-- },
+		{
+			"<leader>th",
+			"<cmd>ToggleTerm size=10 direction=horizontal<cr>",
+			desc = "Toggle Horizontal Terminal",
+			mode = "n",
+		},
 		{
 			"<leader>tv",
 			"<cmd>ToggleTerm size=80 direction=vertical<cr>",
@@ -390,6 +423,53 @@ wk.add({
 			},
 			{ "<leader>sv", "<cmd>vsplit<cr>", desc = "buffer Vertical Split", mode = "n", icon = "" },
 			{ "<leader>sh", "<cmd>split<cr>", desc = "buffer Horizontal Split", mode = "n", icon = "" },
+		},
+	},
+	{
+		{ "<leader>L", group = "LSP Extra", icon = "" }, -- group for LSP commands
+
+		{ "<leader>LR", "<cmd>Telescope lsp_references<CR>", desc = "Show LSP references", mode = "n", icon = "" },
+		{ "<leader>LD", vim.lsp.buf.declaration, desc = "Go to declaration", mode = "n", icon = "󱂢" },
+		{ "<leader>Ld", "<cmd>Telescope lsp_definitions<CR>", desc = "Show LSP definitions", mode = "n", icon = "" },
+		{
+			"<leader>Li",
+			"<cmd>Telescope lsp_implementations<CR>",
+			desc = "Show LSP implementations",
+			mode = "n",
+			icon = "󰙳",
+		},
+		{
+			"<leader>Lt",
+			"<cmd>Telescope lsp_type_definitions<CR>",
+			desc = "Show LSP type definitions",
+			mode = "n",
+			icon = "󰙳",
+		},
+	},
+	{
+		{ "<leader>a", group = "Apple-music", icon = "" },
+
+		{
+			"<leader>ap",
+			function()
+				require("apple-music").toggle_play()
+			end,
+			desc = "Toggle [P]layback",
+		},
+		{
+			"<leader>as",
+			function()
+				require("apple-music").toggle_shuffle()
+			end,
+			desc = "Toggle [S]huffle",
+		},
+
+		{
+			"<leader>ax",
+			function()
+				require("apple-music").cleanup_all()
+			end,
+			desc = "Cleanup Temp Playlists",
 		},
 	},
 	{
