@@ -1,7 +1,7 @@
 local M = {}
 
-M.ui = {
-	theme = "tokyodark",
+M.base46 = {
+	theme = "poimandres",
 	-- transparency = true,
 	cmp = {
 		icons = true,

@@ -231,12 +231,6 @@ wk.add({
 		{ "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal", mode = "n" },
 		{ "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "Toggle Float Terminal", mode = "n" },
 		{
-			"<leader>th",
-			"<cmd>ToggleTerm size=10 direction=horizontal<cr>",
-			desc = "Toggle Horizontal Terminal",
-			mode = "n",
-		},
-		{
 			"<leader>tv",
 			"<cmd>ToggleTerm size=80 direction=vertical<cr>",
 			desc = "Toggle Vertical Terminal",
