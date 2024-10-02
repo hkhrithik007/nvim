@@ -94,8 +94,8 @@ return {
 	},
 	{
 		"zeioth/garbage-day.nvim",
+    event={"BufRead","BufNewFile"},
 		dependencies = "neovim/nvim-lspconfig",
-		event = "VeryLazy",
 		opts = {
 			aggressive_mode = true,
 		},
