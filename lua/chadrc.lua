@@ -1,42 +1,12 @@
+-- This file needs to have same structure as nvconfig.lua 
+-- https://github.com/NvChad/ui/blob/v2.5/lua/nvconfig.lua
+-- Please read that file to know all available options :( 
+
+---@type ChadrcConfig
 local M = {}
 
 M.base46 = {
-	theme = "poimandres",
-	-- transparency = true,
-	cmp = {
-		icons = true,
-		style = "default",
-		lspkind_text = true,
-		source = true,
-		border = "single",
-	},
-	-- telescope = { style = "bordered" },
-	lsp = { signature = true },
-	-- hl_override = {
-	-- 	Comment = { italic = true },
-	-- 	["@comment"] = { italic = true },
-	-- },
-	-- statusline = {
-	-- 	theme = "minimal",
-	-- 	disable = { alpha = true },
-	-- 	separator_style = "arrow",
-	-- 	overriden_modules = nil,
-	-- 	tabufline = true,
-	-- 	winbar = true,
-	-- 	winbar_filetype_exclude = {
-	-- 		"help",
-	-- 		"startify",
-	-- 		"dashboard",
-	-- 		"packer",
-	-- 		"neogitstatus",
-	-- 	},
-	-- },
-	tabufline = {
-		enabled = true,
-		lazyload = true,
-		order = { "treeOffset", "buffers", "tabs", "btns" },
-		modules = nil,
-	},
+	theme = "onedark",
 }
 
 return M
