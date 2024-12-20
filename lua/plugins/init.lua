@@ -17,6 +17,16 @@ return {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
   },
+
+  {
+    "mfussenegger/nvim-dap-python",
+    ft = { "python" },
+    dependencies = { "mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui" },
+    config = function()
+      local PATH = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+      require("dap-python").setup(PATH)
+    end,
+  },
   {
     "mfussenegger/nvim-lint",
     lazy = "VeryLazy",
@@ -69,12 +79,16 @@ return {
         "lua-language-server",
         "stylua",
         "luacheck",
-        "kotlin-language-server",
+        -- "kotlin-language-server",
         "jdtls",
         "java-debug-adapter",
-        "ktfmt",
+        -- "ktfmt",
         "google-java-format",
         "trivy",
+        "mypy",
+        "debugpy",
+        "black",
+        "ruff",
       },
     },
   },
@@ -89,6 +103,7 @@ return {
         "vimdoc",
         "java",
         "kotlin",
+        "python",
       },
     },
   },
@@ -173,7 +188,6 @@ return {
     {
       "stevearc/dressing.nvim",
       lazy = "VeryLazy",
-      -- event = { "BufRead", "BufnewFile" },
       init = function()
         ---@diagnostic disable-next-line: duplicate-set-field
         vim.ui.select = function(...)
@@ -188,20 +202,17 @@ return {
       end,
     },
   },
-
   {
     "nvimdev/dashboard-nvim",
     enabled = true,
     event = "VimEnter",
     config = function()
-      -- config
       require "configs.dashboard"
     end,
     dependencies = { { "nvim-tree/nvim-web-devicons" } },
   },
   {
     "folke/which-key.nvim",
-    -- event = "VeryLazy",
     lazy = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     init = function()
@@ -311,11 +322,9 @@ return {
         vim.keymap.set("n", "<leader>sm", ":lua require('gen').select_model()<cr>", { noremap = true, silent = true })
       end,
     },
-
     --game
     {
       "seandewar/killersheep.nvim",
-      -- lazy = "VeryLazy",
       event = "BufRead",
       config = function()
         require "configs.killersheep"
@@ -366,6 +375,7 @@ return {
     },
     {
       "p5quared/apple-music.nvim",
+      enabled = false,
       lazy = "VeryLazy",
       dependencies = { "nvim-telescope/telescope.nvim" },
       config = true,
