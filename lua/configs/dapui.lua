@@ -1,15 +1,15 @@
-local dap, dapui = require("dap").init, require("dapui")
+local dap, dapui = require("dap").init, require "dapui"
 
 local dap_status_ok, dap = pcall(require, "dap")
 if not dap_status_ok then
   return
 end
 
-local dap_status_ok, _ = pcall(loadfile,"plugins/dap.nvim")
+local dap_status_ok, _ = pcall(loadfile, "plugins/dap.nvim")
 if not dap_status_ok then
   return
 end
-local dapui_status_ok, _ = pcall(loadfile,"plugins/dapui.nvim")
+local dapui_status_ok, _ = pcall(loadfile, "plugins/dapui.nvim")
 if not dapui_status_ok then
   return
 end
@@ -25,16 +25,7 @@ dapui.setup {
     repl = "r",
     toggle = "t",
   },
-  -- Expand lines larger than the window
-  -- Requires >= 0.7
   expand_lines = vim.fn.has "nvim-0.7",
-  -- Layouts define sections of the screen to place windows.
-  -- The position can be "left", "right", "top" or "bottom".
-  -- The size specifies the height/width depending on position. It can be an Int
-  -- or a Float. Integer specifies height/width directly (i.e. 20 lines/columns) while
-  -- Float value specifies percentage (i.e. 0.3 - 30% of available lines/columns)
-  -- Elements are the elements shown in the layout (in order).
-  -- Layouts are opened in order so that earlier layouts take priority in window sizing.
   layouts = {
     {
       elements = {
@@ -45,7 +36,7 @@ dapui.setup {
         -- "watches",
       },
       size = 40, -- 40 columns
-      position = "right",
+      position = "left",
     },
     {
       elements = {
@@ -82,4 +73,3 @@ dap.listeners.before.event_exited["dapui_config"] = function()
 end
 vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
 vim.fn.sign_define("DapStopped", { text = "▶️", texthl = "", linehl = "", numhl = "" })
-

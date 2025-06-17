@@ -37,28 +37,28 @@ wk.add {
       icon = "",
     },
     -- {
-    -- 	"<leader>fp",
-    -- 	function()
-    -- 		require("apple-music").select_playlist_telescope()
-    -- 	end,
-    -- 	desc = "[F]ind [P]laylists",
-    -- 	icon = "󰀶",
+    --   "<leader>fp",
+    --   function()
+    --     require("apple-music").select_playlist_telescope()
+    --   end,
+    --   desc = "[F]ind [P]laylists",
+    --   icon = "󰀶",
     -- },
     -- {
-    -- 	"<leader>fa",
-    -- 	function()
-    -- 		require("apple-music").select_album_telescope()
-    -- 	end,
-    -- 	desc = "[F]ind [A]lbum",
-    -- 	icon = "󰀶",
+    --   "<leader>fa",
+    --   function()
+    --     require("apple-music").select_album_telescope()
+    --   end,
+    --   desc = "[F]ind [A]lbum",
+    --   icon = "󰀶",
     -- },
     -- {
-    -- 	"<leader>fs",
-    -- 	function()
-    -- 		require("apple-music").select_track_telescope()
-    -- 	end,
-    -- 	desc = "[F]ind [S]ong",
-    -- 	icon = "󰀶",
+    --   "<leader>fs",
+    --   function()
+    --     require("apple-music").select_track_telescope()
+    --   end,
+    --   desc = "[F]ind [S]ong",
+    --   icon = "󰀶",
     -- },
   },
   {
