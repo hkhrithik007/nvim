@@ -3,7 +3,7 @@
 local options = {
 
   base46 = {
-    theme = "chadracula-evondev",
+    theme = "eldritch",
   },
 
   ui = {

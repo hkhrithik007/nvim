@@ -1,69 +1,52 @@
 local wk = require "which-key"
 ---@diagnostic disable-next-line: unused-local
-local telescope = require "telescope"
-
-function _LAZYGIT_TOGGLE()
-  local Terminal = require("toggleterm.terminal").Terminal
-  local lazygit = Terminal:new { cmd = "lazygit", hidden = true }
-  lazygit:toggle()
-end
+require "snacks"
+-- function _LAZYGIT_TOGGLE()
+--   local Terminal = require("toggleterm.terminal").Terminal
+--   local lazygit = Terminal:new { cmd = "lazygit", hidden = true }
+--   lazygit:toggle()
+-- end
 wk.add {
   {
     { "<leader>f", group = "file", icon = "" },
-    { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File", mode = "n", icon = "󰈞" },
+    {
+      "<leader>ff",
+      function()
+        Snacks.picker.files()
+      end,
+      desc = "Find File",
+      mode = "n",
+      icon = "󰈞",
+    },
     {
       "<leader>fg",
       function()
-        require("telescope").extensions.live_grep_args.live_grep_args()
+        Snacks.picker.grep()
       end,
       desc = "Find Text",
       mode = "n",
       icon = "󰺮",
     },
     {
-      "<leader>fu",
-      function()
-        require("telescope").extensions.undo.undo()
-      end,
-      desc = "find undo history",
-      mode = "n",
-      icon = "",
-    },
-    {
       "<leader>fb",
-      "<cmd>Telescope buffers<cr>",
+      function()
+        Snacks.picker.buffers()
+      end,
       desc = "Buffers",
       mode = "n",
       icon = "",
     },
-    -- {
-    --   "<leader>fp",
-    --   function()
-    --     require("apple-music").select_playlist_telescope()
-    --   end,
-    --   desc = "[F]ind [P]laylists",
-    --   icon = "󰀶",
-    -- },
-    -- {
-    --   "<leader>fa",
-    --   function()
-    --     require("apple-music").select_album_telescope()
-    --   end,
-    --   desc = "[F]ind [A]lbum",
-    --   icon = "󰀶",
-    -- },
-    -- {
-    --   "<leader>fs",
-    --   function()
-    --     require("apple-music").select_track_telescope()
-    --   end,
-    --   desc = "[F]ind [S]ong",
-    --   icon = "󰀶",
-    -- },
   },
   {
     { "<leader>g", group = "git" },
-    { "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", desc = "Lazygit", mode = "n" },
+    {
+      "<leader>gg",
+      function()
+        Snacks.lazygit()
+      end,
+      desc = "Lazygit",
+      mode = "n",
+    },
     {
       "<leader>gj",
       function()
@@ -136,9 +119,6 @@ wk.add {
       mode = "n",
       icon = "",
     },
-    { "<leader>go", "<cmd>Telescope git_status<cr>", desc = "Open changed file", mode = "n", icon = "" },
-    { "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch", mode = "n", icon = "" },
-    { "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Checkout commit", mode = "n", icon = "" },
     { "<leader>gd", "<cmd>Gitsigns diffthis HEAD<cr>", desc = "Diff", mode = "n", icon = "" },
   },
   {
@@ -173,22 +153,6 @@ wk.add {
     { "<leader>li", "<cmd>LspInfo<cr>", desc = "Info", mode = "n", icon = "" },
     { "<leader>lI", "<cmd>Mason<cr>", desc = "Installer Info", mode = "n", icon = "" },
     {
-      "<leader>lj",
-      function()
-        vim.diagnostic.goto_next()
-      end,
-      desc = "Next Diagnostic",
-      mode = "n",
-    },
-    {
-      "<leader>lk",
-      function()
-        vim.diagnostic.goto_prev()
-      end,
-      desc = "Prev Diagnostic",
-      mode = "n",
-    },
-    {
       "<leader>ll",
       function()
         vim.lsp.codelens.run()
@@ -214,21 +178,17 @@ wk.add {
       mode = "n",
       icon = "󰑕",
     },
-    { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols", mode = "n" },
-    { "<leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace Symbols", mode = "n" },
-  },
-  {
-    { "<leader>S", group = "search", icon = "󱙓" },
-    { "<leader>Sb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch", mode = "n", icon = "" },
-    { "<leader>Sc", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme", mode = "n" },
-    { "<leader>Sr", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File", mode = "n" },
-    { "<leader>SR", "<cmd>Telescope registers<cr>", desc = "Registers", mode = "n" },
-    { "<leader>Sk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps", mode = "n" },
-    { "<leader>SC", "<cmd>Telescope commands<cr>", desc = "Commands", mode = "n" },
   },
   {
     { "<leader>t", group = "terminal" },
-    { "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal", mode = "n" },
+    {
+      "<leader>tt",
+      function()
+        Snacks.terminal()
+      end,
+      desc = "Toggle Terminal",
+      mode = "n",
+    },
     { "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "Toggle Float Terminal", mode = "n" },
     {
       "<leader>tv",
@@ -440,32 +400,6 @@ wk.add {
       icon = "󰙳",
     },
   },
-  -- {
-  --   { "<leader>a", group = "Apple-music", icon = "" },
-  --
-  --   {
-  --     "<leader>ap",
-  --     function()
-  --       require("apple-music").toggle_play()
-  --     end,
-  --     desc = "Toggle [P]layback",
-  --   },
-  --   {
-  --     "<leader>as",
-  --     function()
-  --       require("apple-music").toggle_shuffle()
-  --     end,
-  --     desc = "Toggle [S]huffle",
-  --   },
-  --
-  --   {
-  --     "<leader>ax",
-  --     function()
-  --       require("apple-music").cleanup_all()
-  --     end,
-  --     desc = "Cleanup Temp Playlists",
-  --   },
-  -- },
   {
     -- Nested mappings are allowed and can be added in any order
     -- Most attributes can be inherited or overridden on any level
@@ -474,7 +408,14 @@ wk.add {
     { "<leader>k", "<cmd>KillKillKill<cr>", desc = "Killersheep", mode = "n", icon = "󰳆" },
     { "<leader>q", "<cmd>q!<cr>", desc = "Quit", icon = "󰈆" }, -- no need to specify mode since it's inherited
     { "<leader>w", "<cmd>w!<cr>", desc = "Write", icon = "󱣪" },
-    { "<leader>e", "<cmd>:NvimTreeToggle<cr>", desc = "NvimTree Focus", icon = "" },
+    {
+      "<leader>e",
+      function()
+        Snacks.explorer()
+      end,
+      desc = "NvimTree Focus",
+      icon = "",
+    },
     { "<leader>x", "<cmd>bw<cr>", desc = "buffer close", icon = "󰱞", mode = "n" },
   },
 }
