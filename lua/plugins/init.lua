@@ -2,7 +2,7 @@ return {
   {
     "stevearc/conform.nvim",
     lazy = true,
-    -- event = { "bufwritepost", "BufWritePre" },
+    event = { "bufwritepost", "BufWritePre" },
     opts = require "configs.conform",
   },
 
