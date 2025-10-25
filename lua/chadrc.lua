@@ -4,8 +4,8 @@ local options = {
 
   base46 = {
     theme = "eldritch",
+    transparency = transparent,
   },
-
   ui = {
     cmp = {
       icons = true,
@@ -16,7 +16,7 @@ local options = {
     telescope = { style = "bordered" }, -- borderless / bordered
 
     statusline = {
-      theme = "minimal", -- default/vscode/vscode_colored/minimal
+      theme = "vscode", -- default/vscode/vscode_colored/minimal
       separator_style = "round",
       order = nil,
       modules = nil,

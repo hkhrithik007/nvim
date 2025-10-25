@@ -19,10 +19,5 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     require("lint").try_lint()
   end,
 })
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  callback = function()
-    require("lint").try_lint()
-  end,
-})
 -- vim.opt.guicursor = "n:block-blinkwait1000-blinkon500-blinkoff500"
 vim.opt.termguicolors = true

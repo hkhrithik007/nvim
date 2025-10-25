@@ -1,5 +1,5 @@
 {
-  "LuaSnip": { "branch": "master", "commit": "ccf25a5452b8697a823de3e5ecda63ed3d723b79" },
+  "LuaSnip": { "branch": "master", "commit": "458560534a73f7f8d7a11a146c801db00b081df0" },
   "NvChad": { "branch": "v2.5", "commit": "f107fabe11ac8013dc3435ecd5382bee872b1584" },
   "base46": { "branch": "v3.0", "commit": "db58475d3fd2a16f9b1467d6895e3c4c195ed7dd" },
   "blink-ripgrep.nvim": { "branch": "main", "commit": "17427fe1cf5c4084e0e619b0152708c1f72139b9" },
@@ -39,7 +39,7 @@
   "nvim-web-devicons": { "branch": "master", "commit": "b8221e42cf7287c4dcde81f232f58d7b947c210d" },
   "plenary.nvim": { "branch": "master", "commit": "b9fd5226c2f76c951fc8ed5923d85e4de065e509" },
   "smart-splits.nvim": { "branch": "master", "commit": "6c7c64b6e1be6eb95fd9583c0969e0df625c6cd6" },
-  "snacks.nvim": { "branch": "main", "commit": "37cae803efdef3343de98334cf94fda3df199c24" },
+  "snacks.nvim": { "branch": "main", "commit": "f75eaf1e18cea03605e626eca2a1b9c4345071d4" },
   "telescope.nvim": { "branch": "master", "commit": "b4da76be54691e854d3e0e02c36b0245f945c2c7" },
   "toggleterm.nvim": { "branch": "main", "commit": "9a88eae817ef395952e08650b3283726786fb5fb" },
   "ui": { "branch": "v3.0", "commit": "bea2af0a76c1098fac0988ad296aa028cad2a333" },
