@@ -125,11 +125,12 @@ return {
   {
     "saghen/blink.cmp",
     event = "InsertEnter",
-    build = "cargo build --release", -- Uncomment this line
+    build = 'cargo build --release', -- Uncomment this line
     lazy = true,
     dependencies = {
       "rafamadriz/friendly-snippets",
       "mikavilpas/blink-ripgrep.nvim",
+      "saghen/blink.lib",
       {
         "saghen/blink.compat",
         main = "blink-compat",
