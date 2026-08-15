@@ -25,7 +25,7 @@ local handlers = {
 -- Mason setup
 mason.setup()
 mason_lspconfig.setup({
-  ensure_installed = { "pyright", "lua_ls", "jdtls" },
+  ensure_installed = { "pyright", "lua_ls", "jdtls", "ts_ls" },
   automatic_installation = true,
 })
 

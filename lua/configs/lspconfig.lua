@@ -104,13 +104,13 @@ vim.lsp.config("cssls", {
 })
 
 -- TypeScript/JavaScript
--- vim.lsp.config("ts_ls", {
---   init_options = {
---     preferences = {
---       disableSuggestions = false,
---     },
---   },
--- })
+vim.lsp.config("ts_ls", {
+  init_options = {
+    preferences = {
+      disableSuggestions = false,
+    },
+  },
+})
 --
 -- JSON
 vim.lsp.config("jsonls", {
@@ -131,7 +131,7 @@ vim.lsp.enable {
   "jdtls",
   "html",
   "cssls",
-  -- "ts_ls",
+  "ts_ls",
   "jsonls",
   "denols",
 }
