@@ -23,6 +23,7 @@ function M.setup()
         "ripgrep",
         "lsp",
         "snippets",
+        "path",
       },
 
       providers = {
@@ -161,17 +162,45 @@ function M.setup()
     keymap = {
       preset = "enter",
 
-      ["<Down>"] = { "snippet_forward", "fallback" },
-      ["<Up>"] = { "snippet_backward", "fallback" },
+      ["<Down>"] = {
+        "snippet_forward",
+        "fallback",
+      },
 
-      ["<S-Tab>"] = { "select_prev", "fallback" },
-      ["<Tab>"] = { "select_next", "fallback" },
+      ["<Up>"] = {
+        "snippet_backward",
+        "fallback",
+      },
 
-      ["<C-p>"] = { "select_prev", "fallback" },
-      ["<C-n>"] = { "select_next", "fallback" },
+      ["<S-Tab>"] = {
+        "select_prev",
+        "fallback",
+      },
 
-      ["<S-k>"] = { "scroll_documentation_up", "fallback" },
-      ["<S-j>"] = { "scroll_documentation_down", "fallback" },
+      ["<Tab>"] = {
+        "select_next",
+        "fallback",
+      },
+
+      ["<C-p>"] = {
+        "select_prev",
+        "fallback",
+      },
+
+      ["<C-n>"] = {
+        "select_next",
+        "fallback",
+      },
+
+      ["<S-k>"] = {
+        "scroll_documentation_up",
+        "fallback",
+      },
+
+      ["<S-j>"] = {
+        "scroll_documentation_down",
+        "fallback",
+      },
 
       ["<C-space>"] = {
         "show",
@@ -179,7 +208,10 @@ function M.setup()
         "hide_documentation",
       },
 
-      ["<C-e>"] = { "hide", "fallback" },
+      ["<C-e>"] = {
+        "hide",
+        "fallback",
+      },
     },
 
     appearance = {
