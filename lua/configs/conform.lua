@@ -7,8 +7,21 @@ require("conform").setup {
     html = { "prettier" },
     css = { "prettier" },
     ts = { "prettier" },
+    c = { "clang-format" },
   },
+  keys = {
+    {
+      "<leader>fo",
+      function()
+        require("conform").format({ async = true, lsp_fallback = true })
+      end,
+      mode = "",
+      desc = "Format buffer",
+    },
+  },
+
 }
+
 require("conform").setup({
   format_on_save = {
     -- These options will be passed to conform.format()

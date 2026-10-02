@@ -23,7 +23,6 @@ function M.setup()
         "ripgrep",
         "lsp",
         "snippets",
-        "codeium",
       },
 
       providers = {
@@ -31,12 +30,6 @@ function M.setup()
           name = "lsp",
           enabled = true,
           module = "blink.cmp.sources.lsp",
-        },
-
-        codeium = {
-          name = "Codeium",
-          module = "codeium.blink",
-          async = true,
         },
 
         snippets = {

@@ -4,7 +4,8 @@
         "on_attach",
         "capabilities",
         "desc",
-        "local"
+        "local",
+        "neoscroll"
     ],
     "diagnostics.disable": [
         "trailing-space",

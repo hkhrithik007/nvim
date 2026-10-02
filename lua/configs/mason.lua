@@ -25,7 +25,7 @@ local handlers = {
 -- Mason setup
 mason.setup()
 mason_lspconfig.setup({
-  ensure_installed = { "pyright", "lua_ls", "jdtls", "ts_ls" },
+  ensure_installed = { "pyright", "lua_ls", "jdtls", "ts_ls", "clangd" },
   automatic_installation = true,
 })
 
@@ -40,6 +40,17 @@ local servers = {
     },
   },
   jdtls = {},
+  clangd = {
+    filetype = { "c" } },
+  capabilities = capabilities,
+  cmd = {
+    "clangd",
+    "--background-index",            -- Index project code in the background
+    "--clang-tidy",                  -- Enable linter diagnostics
+    "--header-insertion=iwyu",       -- Insert headers using "Include What You Use"
+    "--completion-style=detailed",
+    "--fallback-style=llvm",
+  },
 }
 
 -- Setup LSPs per server (modern API)
