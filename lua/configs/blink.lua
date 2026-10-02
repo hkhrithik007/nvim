@@ -1,10 +1,10 @@
 local M = {}
 
 function M.setup()
-  local blink = require("blink.cmp")
+  local blink = require "blink.cmp"
   local ok, luasnip = pcall(require, "luasnip")
 
-  blink.setup({
+  blink.setup {
     enabled = function()
       local filetype = vim.bo.filetype
 
@@ -24,6 +24,7 @@ function M.setup()
         "lsp",
         "snippets",
         "path",
+        "codeium",
       },
 
       providers = {
@@ -37,6 +38,11 @@ function M.setup()
           name = "snippets",
           enabled = true,
           module = "blink.cmp.sources.snippets",
+        },
+        codeium = {
+          name = "Codeium",
+          module = "codeium.blink",
+          async = true,
         },
 
         ripgrep = {
@@ -112,7 +118,7 @@ function M.setup()
 
         draw = {
           columns = {
-            { "label",     "label_description", gap = 1 },
+            { "label", "label_description", gap = 1 },
             { "kind_icon", "kind" },
           },
         },
@@ -225,7 +231,7 @@ function M.setup()
         border = "rounded",
       },
     },
-  })
+  }
 end
 
 return M

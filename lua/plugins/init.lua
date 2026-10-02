@@ -155,7 +155,7 @@ return {
           "rafamadriz/friendly-snippets",
         },
         config = function()
-          require("luasnip.loaders.from_vscode").lazy_load("friendly-snippets")
+          require("luasnip.loaders.from_vscode").lazy_load "friendly-snippets"
         end,
       },
     },
@@ -280,7 +280,7 @@ return {
       "nvim-lua/plenary.nvim",
       "saghen/blink.cmp",
     },
-    enabled = false,
+    enabled = true,
     config = function()
       require("codeium").setup {
         enable_cmp_source = true,
@@ -315,12 +315,12 @@ return {
       dependencies = {
         "hrsh7th/cmp-buffer", -- source for text in buffer
         "onsails/lspkind.nvim",
-        "hrsh7th/cmp-path",   -- source for file system paths
+        "hrsh7th/cmp-path", -- source for file system paths
         {
           "L3MON4D3/LuaSnip",
           build = "make install_jsregexp",
         },
-        "saadparwaiz1/cmp_luasnip",     -- for autocompletion
+        "saadparwaiz1/cmp_luasnip", -- for autocompletion
         "rafamadriz/friendly-snippets", -- useful snippets
         "hrsh7th/cmp-cmdline",
       },
@@ -357,7 +357,7 @@ return {
     "willothy/nvim-cokeline",
     event = { "BufRead", "BufNewFile" },
     dependencies = {
-      "nvim-lua/plenary.nvim",       -- Required for v0.4.0+
+      "nvim-lua/plenary.nvim", -- Required for v0.4.0+
       "nvim-tree/nvim-web-devicons", -- If you want devicons
     },
     config = function()
@@ -382,11 +382,4 @@ return {
       require("live-server-nvim").setup {}
     end,
   },
-  {
-    "numToStr/FTerm.nvim",
-    lazy = true,
-    config = function()
-      require("configs.fterm")
-    end,
-  }
 }

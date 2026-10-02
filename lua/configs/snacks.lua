@@ -3,11 +3,15 @@ local M = {}
 function M.setup()
   local snacks = require "snacks"
 
+  local fish = vim.fn.exepath "fish"
+
   snacks.setup {
     dashboard = {
       enabled = true,
+
       sections = {
         { section = "header", gap = 1 },
+
         {
           pane = 2,
           section = "terminal",
@@ -16,9 +20,29 @@ function M.setup()
           padding = 1,
           gap = 1,
         },
+
         { section = "keys", gap = 1, padding = 1 },
-        { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1, gap = 1 },
-        { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1, gap = 1 },
+
+        {
+          pane = 2,
+          icon = " ",
+          title = "Recent Files",
+          section = "recent_files",
+          indent = 2,
+          padding = 1,
+          gap = 1,
+        },
+
+        {
+          pane = 2,
+          icon = " ",
+          title = "Projects",
+          section = "projects",
+          indent = 2,
+          padding = 1,
+          gap = 1,
+        },
+
         {
           pane = 2,
           icon = " ",
@@ -34,6 +58,7 @@ function M.setup()
           indent = 3,
           gap = 1,
         },
+
         { section = "startup", gap = 1 },
       },
     },
@@ -47,19 +72,34 @@ function M.setup()
       title = " Notification History ",
       title_pos = "center",
       ft = "markdown",
-      bo = { filetype = "snacks_notif_history", modifiable = false },
-      wo = { winhighlight = "Normal:SnacksNotifierHistory" },
-      keys = { q = "close" },
+      bo = {
+        filetype = "snacks_notif_history",
+        modifiable = false,
+      },
+      wo = {
+        winhighlight = "Normal:SnacksNotifierHistory",
+      },
+      keys = {
+        q = "close",
+      },
     },
 
     lazygit = {
       {
         configure = true,
+
         config = {
-          os = { editPreset = "nvim-remote" },
-          gui = { nerdFontsVersion = "3" },
+          os = {
+            editPreset = "nvim-remote",
+          },
+
+          gui = {
+            nerdFontsVersion = "3",
+          },
         },
+
         theme_path = vim.fs.normalize(vim.fn.stdpath "cache" .. "/lazygit-theme.yml"),
+
         theme = {
           [241] = { fg = "Special" },
           activeBorderColor = { fg = "MatchParen", bold = true },
@@ -72,73 +112,85 @@ function M.setup()
           selectedLineBgColor = { bg = "Visual" },
           unstagedChangesColor = { fg = "DiagnosticError" },
         },
-        win = { style = "lazygit" },
+
+        win = {
+          style = "lazygit",
+        },
       },
     },
 
+    -- ============================================================
+    -- SNACKS TERMINAL
+    -- ============================================================
     terminal = {
-      {
-        bo = { filetype = "snacks_terminal" },
-        wo = {},
-        keys = {
-          q = "hide",
-          gf = function(self)
-            local f = vim.fn.findfile(vim.fn.expand "<cfile>", "**")
-            if f == "" then
-              snacks.notify.warn "No file under cursor"
-            else
-              self:hide()
-              vim.schedule(function()
-                vim.cmd("e " .. f)
-              end)
-            end
-          end,
-          term_normal = {
-            "<esc>",
-            function(self)
-              self.esc_timer = self.esc_timer or (vim.uv or vim.loop).new_timer()
-              if self.esc_timer:is_active() then
-                self.esc_timer:stop()
-                vim.cmd "stopinsert"
-              else
-                self.esc_timer:start(200, 0, function() end)
-                return "<esc>"
-              end
-            end,
-            mode = "t",
-            expr = true,
-            desc = "Double escape to normal mode",
-          },
-        },
+      -- Use Fish instead of zsh/bash.
+      shell = fish ~= "" and fish or "/opt/homebrew/bin/fish",
+
+      win = {
+        style = "terminal",
+        position = "bottom",
+        height = 0.35,
       },
     },
 
     scroll = {
       animate = {
-        duration = { step = 15, total = 250 },
+        duration = {
+          step = 15,
+          total = 250,
+        },
         easing = "linear",
       },
+
       animate_repeat = {
         delay = 100,
-        duration = { step = 5, total = 50 },
+        duration = {
+          step = 5,
+          total = 50,
+        },
         easing = "linear",
       },
+
       filter = function(buf)
-        return vim.g.snacks_scroll ~= false
-            and vim.b[buf].snacks_scroll ~= false
-            and vim.bo[buf].buftype ~= "terminal"
+        return vim.g.snacks_scroll ~= false and vim.b[buf].snacks_scroll ~= false and vim.bo[buf].buftype ~= "terminal"
       end,
     },
 
-    explorer = { enabled = true },
-    indent = { enabled = true },
-    input = { enabled = true },
-    picker = { enabled = true },
-    notifier = { enabled = true },
-    quickfile = { enabled = true },
-    scope = { enabled = true },
-    statuscolumn = { enabled = true },
-    words = { enabled = true },
+    explorer = {
+      enabled = true,
+    },
+
+    indent = {
+      enabled = true,
+    },
+
+    input = {
+      enabled = true,
+    },
+
+    picker = {
+      enabled = true,
+    },
+
+    notifier = {
+      enabled = true,
+    },
+
+    quickfile = {
+      enabled = true,
+    },
+
+    scope = {
+      enabled = true,
+    },
+
+    statuscolumn = {
+      enabled = true,
+    },
+
+    words = {
+      enabled = true,
+    },
   }
 end
 

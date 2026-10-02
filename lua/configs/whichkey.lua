@@ -2,7 +2,6 @@ local wk = require "which-key"
 ---@diagnostic disable-next-line: unused-local
 local snacks = require "snacks"
 
-
 wk.add {
   {
     { "<leader>f", group = "file", icon = "" },
@@ -367,38 +366,60 @@ wk.add {
     },
   },
   {
-    { "<leader>t", group = "terminal" },
+    { "<leader>t", group = "terminal", icon = "" },
 
     {
       "<leader>tt",
       function()
-        require("FTerm").toggle()
-      end,
-      desc = "Toggle Terminal (FTerm)",
-      mode = { "n", "t" },
-    },
+        Snacks.terminal.toggle(nil, {
+          win = {
+            style = "terminal",
+            position = "bottom",
+            height = 0.30,
+            border = "none",
 
-    -- {
-    --   "<leader>tf",
-    --   function()
-    --     require("FTerm").scratch()
-    --   end,
-    --   desc = "Scratch Terminal (FTerm)",
-    --   mode = "n",
-    -- },
+            wo = {
+              winbar = "",
+              statusline = "",
+              statuscolumn = "",
+              signcolumn = "no",
+              number = false,
+              relativenumber = false,
+              winhighlight = "Normal:Normal,NormalNC:Normal",
+            },
+          },
+        })
+      end,
+      desc = "Bottom Terminal",
+      mode = { "n", "t" },
+      icon = "",
+    },
 
     {
       "<leader>tv",
       function()
-        require("FTerm").scratch({
-          dimensions = {
-            height = 1.0,
-            width = 0.4,
+        Snacks.terminal.toggle(nil, {
+          win = {
+            style = "terminal",
+            position = "right",
+            width = 0.35,
+            height = 0,
+            border = "none",
+
+            wo = {
+              winbar = "",
+              statusline = "",
+              statuscolumn = "",
+              signcolumn = "no",
+              number = false,
+              relativenumber = false,
+              winhighlight = "Normal:Normal,NormalNC:Normal",
+            },
           },
         })
       end,
-      desc = "Side Terminal (FTerm)",
-      mode = "n",
+      desc = "Right Terminal",
+      mode = { "n", "t" },
     },
   },
   {
