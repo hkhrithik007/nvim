@@ -14,32 +14,32 @@ return {
       require "configs.whichkey"
     end,
   },
+
   {
-    {
-      "nvim-treesitter/nvim-treesitter",
-      event = "BufRead",
-      dependencies = { "nvim-treesitter/nvim-treesitter-textobjects", lazy = true },
-      opts = {
-        ensure_installed = {
-          "vim",
-          "lua",
-          "vimdoc",
-          "html",
-          "css",
-          "pyhton",
-          "javascript",
-        },
+    "nvim-treesitter/nvim-treesitter",
+    event = "BufRead",
+    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects", lazy = true },
+    opts = {
+      ensure_installed = {
+        "vim",
+        "lua",
+        "vimdoc",
+        "html",
+        "css",
+        "pyhton",
+        "javascript",
       },
     },
   },
+
   --java tools
+
   {
-    {
-      "mfussenegger/nvim-jdtls",
-      lazy = "VeryLazy",
-      ft = "java",
-    },
+    "mfussenegger/nvim-jdtls",
+    lazy = "VeryLazy",
+    ft = "java",
   },
+
   {
     "stevearc/conform.nvim",
     event = { "BufReadPre", "BufRead", "BufNewFile" },
@@ -136,17 +136,32 @@ return {
       "rafamadriz/friendly-snippets",
       "mikavilpas/blink-ripgrep.nvim",
       "saghen/blink.lib",
-
       {
-        "saghen/blink.compat",
-        main = "blink-compat",
-        version = "*",
+        "milanglacier/minuet-ai.nvim",
+        main = "minuet",
         opts = {
-          impersonate_nvim_cmp = true,
-          enable_events = true,
+          provider = "openai_fim_compatible",
+          n_completions = 1,
+          context_window = 512,
+          throttle = 400,
+          debounce = 100,
+          request_timeout = 10,
+          provider_options = {
+            openai_fim_compatible = {
+              api_key = function()
+                return "ollama"
+              end,
+              name = "Ollama",
+              end_point = "http://localhost:11434/v1/completions",
+              model = "qwen2.5-coder:1.5b",
+              optional = {
+                max_tokens = 128,
+                top_p = 0.9,
+              },
+            },
+          },
         },
       },
-
       {
         "L3MON4D3/LuaSnip",
         version = "v2.*",
@@ -271,21 +286,6 @@ return {
         ":lua require('gen').select_model()<CR>",
         { desc = "Select LLM Model", noremap = true, silent = true }
       )
-    end,
-  },
-  {
-    "Exafunction/windsurf.nvim",
-    event = { "BufRead", "BufNewFile" },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "saghen/blink.cmp",
-    },
-    enabled = true,
-    config = function()
-      require("codeium").setup {
-        enable_cmp_source = true,
-        virtual_text = { enabled = false },
-      }
     end,
   },
   {

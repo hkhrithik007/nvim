@@ -24,39 +24,47 @@ function M.setup()
         "lsp",
         "snippets",
         "path",
-        "codeium",
+        "minuet",
+        "buffer",
       },
 
       providers = {
         lsp = {
-          name = "lsp",
+          name = "LSP",
           enabled = true,
           module = "blink.cmp.sources.lsp",
         },
 
+        minuet = {
+          name = "Minuet",
+          enabled = true,
+          module = "minuet.blink",
+          async = true,
+          timeout_ms = 3000,
+          score_offset = 100,
+        },
+
         snippets = {
-          name = "snippets",
+          name = "Snippets",
           enabled = true,
           module = "blink.cmp.sources.snippets",
-        },
-        codeium = {
-          name = "Codeium",
-          module = "codeium.blink",
-          async = true,
         },
 
         ripgrep = {
           name = "Ripgrep",
+          enabled = true,
           module = "blink-ripgrep",
         },
 
         cmdline = {
-          name = "cmdline",
+          name = "Cmdline",
+          enabled = true,
           module = "blink.cmp.sources.cmdline",
         },
 
         path = {
           name = "Path",
+          enabled = true,
           module = "blink.cmp.sources.path",
           score_offset = 25,
           fallbacks = { "snippets" },
@@ -76,6 +84,12 @@ function M.setup()
 
             show_hidden_files_by_default = true,
           },
+        },
+
+        buffer = {
+          name = "Buffer",
+          enabled = true,
+          module = "blink.cmp.sources.buffer",
         },
       },
     },
@@ -125,7 +139,7 @@ function M.setup()
       },
 
       documentation = {
-        auto_show = true,
+        auto_show = false,
 
         window = {
           border = "single",
