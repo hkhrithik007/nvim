@@ -40,7 +40,7 @@ function M.setup()
           enabled = true,
           module = "minuet.blink",
           async = true,
-          timeout_ms = 3000,
+          timeout_ms = 10000,
           score_offset = 100,
         },
 
@@ -132,7 +132,7 @@ function M.setup()
 
         draw = {
           columns = {
-            { "label", "label_description", gap = 1 },
+            { "label",     "label_description", gap = 1 },
             { "kind_icon", "kind" },
           },
         },

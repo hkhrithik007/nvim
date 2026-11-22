@@ -14,7 +14,6 @@ return {
       require "configs.whichkey"
     end,
   },
-
   {
     "nvim-treesitter/nvim-treesitter",
     event = "BufRead",
@@ -31,9 +30,7 @@ return {
       },
     },
   },
-
   --java tools
-
   {
     "mfussenegger/nvim-jdtls",
     lazy = "VeryLazy",
@@ -315,12 +312,12 @@ return {
       dependencies = {
         "hrsh7th/cmp-buffer", -- source for text in buffer
         "onsails/lspkind.nvim",
-        "hrsh7th/cmp-path", -- source for file system paths
+        "hrsh7th/cmp-path",   -- source for file system paths
         {
           "L3MON4D3/LuaSnip",
           build = "make install_jsregexp",
         },
-        "saadparwaiz1/cmp_luasnip", -- for autocompletion
+        "saadparwaiz1/cmp_luasnip",     -- for autocompletion
         "rafamadriz/friendly-snippets", -- useful snippets
         "hrsh7th/cmp-cmdline",
       },
@@ -357,7 +354,7 @@ return {
     "willothy/nvim-cokeline",
     event = { "BufRead", "BufNewFile" },
     dependencies = {
-      "nvim-lua/plenary.nvim", -- Required for v0.4.0+
+      "nvim-lua/plenary.nvim",       -- Required for v0.4.0+
       "nvim-tree/nvim-web-devicons", -- If you want devicons
     },
     config = function()

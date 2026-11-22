@@ -13,7 +13,8 @@ local rfile = {
   cpp = "g++ $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt",
   scss = "sass $dir/$fileName $dir/$fileNameWithoutExt.css",
   javascript = "bun $dir/$fileName",
-  kotlin = "cd $dir && kotlinc $fileName -include-runtime -d $fileNameWithoutExt.jar && cd $dir && java -jar $fileNameWithoutExt.jar",
+  kotlin =
+  "cd $dir && kotlinc $fileName -include-runtime -d $fileNameWithoutExt.jar && cd $dir && java -jar $fileNameWithoutExt.jar",
   lua = "lua $dir/$fileName",
 }
 
@@ -23,7 +24,6 @@ if data_exists then
     rfile = vim.tbl_deep_extend("force", runscript.coderunner, rfile)
   end
 end
-
 code_runner.setup {
   -- put here the commands by filetype
   filetype = rfile,

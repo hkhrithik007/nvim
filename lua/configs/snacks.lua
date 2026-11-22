@@ -85,37 +85,40 @@ function M.setup()
     },
 
     lazygit = {
-      {
-        configure = true,
+      configure = true,
 
-        config = {
-          os = {
-            editPreset = "nvim-remote",
-          },
-
-          gui = {
-            nerdFontsVersion = "3",
-          },
+      config = {
+        os = {
+          editPreset = "nvim-remote",
         },
 
-        theme_path = vim.fs.normalize(vim.fn.stdpath "cache" .. "/lazygit-theme.yml"),
-
-        theme = {
-          [241] = { fg = "Special" },
-          activeBorderColor = { fg = "MatchParen", bold = true },
-          cherryPickedCommitBgColor = { fg = "Identifier" },
-          cherryPickedCommitFgColor = { fg = "Function" },
-          defaultFgColor = { fg = "Normal" },
-          inactiveBorderColor = { fg = "FloatBorder" },
-          optionsTextColor = { fg = "Function" },
-          searchingActiveBorderColor = { fg = "MatchParen", bold = true },
-          selectedLineBgColor = { bg = "Visual" },
-          unstagedChangesColor = { fg = "DiagnosticError" },
+        gui = {
+          nerdFontsVersion = "3",
         },
+      },
 
-        win = {
-          style = "lazygit",
-        },
+      theme_path = vim.fs.normalize(vim.fn.stdpath "cache" .. "/lazygit-theme.yml"),
+
+      theme = {
+        [241] = { fg = "Special" },
+        activeBorderColor = { fg = "MatchParen", bold = true },
+        cherryPickedCommitBgColor = { fg = "Identifier" },
+        cherryPickedCommitFgColor = { fg = "Function" },
+        defaultFgColor = { fg = "Normal" },
+        inactiveBorderColor = { fg = "FloatBorder" },
+        optionsTextColor = { fg = "Function" },
+        searchingActiveBorderColor = { fg = "MatchParen", bold = true },
+        selectedLineBgColor = { bg = "Visual" },
+        unstagedChangesColor = { fg = "DiagnosticError" },
+      },
+
+      win = {
+        style = "lazygit",
+        position = "float",
+        width = 0.9,
+        height = 0.9,
+        border = "rounded",
+        backdrop = 60,
       },
     },
 
