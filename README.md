@@ -95,5 +95,6 @@ MIT License
 
 Screenshot
 
-<img width="1440" height="900" alt="Screenshot 2025-10-07 at 2 38 46 PM" src="https://github.com/user-attachments/assets/7ce5246d-3bb9-4470-a60e-73f80cd0419b" />
+<img width="1440" height="900" alt="Screenshot 2026-11-22 at 9 50 49 PM" src="https://github.com/user-attachments/assets/2bf67023-f425-47ee-a72f-bf663eeefaa6" />
+
 
